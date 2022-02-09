@@ -1,0 +1,2 @@
+class AttendeeList < ApplicationRecord
+end

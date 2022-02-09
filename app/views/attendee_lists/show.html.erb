@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Compound key:</strong>
+  <%= @attendee_list.compound_key %>
+</p>
+
+<p>
+  <strong>Attendee list:</strong>
+  <%= @attendee_list.attendee_list_id %>
+</p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @attendee_list.UID %>
+</p>
+
+<%= link_to 'Edit', edit_attendee_list_path(@attendee_list) %> |
+<%= link_to 'Back', attendee_lists_path %>
