@@ -1,2 +1,2 @@
-json.extract! alumni, :id, :alumni_id, :LinkedIn, :Occupation, :created_at, :updated_at
+json.extract! alumni, :id, :first_name, :last_name, :LinkedIn, :alumni_occupation, :alumni_grad_year, :created_at, :updated_at
 json.url alumni_url(alumni, format: :json)

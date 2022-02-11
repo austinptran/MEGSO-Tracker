@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :alumni_id %>
-    <%= form.text_field :alumni_id %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
   </div>
 
   <div class="field">
@@ -22,8 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :Occupation %>
-    <%= form.text_field :Occupation %>
+    <%= form.label :alumni_occupation %>
+    <%= form.text_field :alumni_occupation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alumni_grad_year %>
+    <%= form.number_field :alumni_grad_year %>
   </div>
 
   <div class="actions">

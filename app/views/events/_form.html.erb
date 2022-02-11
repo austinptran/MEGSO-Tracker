@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :event_id %>
-    <%= form.text_field :event_id %>
+    <%= form.label :event_name %>
+    <%= form.text_field :event_name %>
   </div>
 
   <div class="field">
-    <%= form.label :point_assess %>
-    <%= form.text_field :point_assess %>
+    <%= form.label :event_point %>
+    <%= form.number_field :event_point %>
   </div>
 
   <div class="field">
@@ -27,23 +27,28 @@
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
-    <%= form.date_select :start_time %>
+    <%= form.label :event_date %>
+    <%= form.date_select :event_date %>
   </div>
 
   <div class="field">
-    <%= form.label :end_time %>
-    <%= form.date_select :end_time %>
+    <%= form.label :event_start %>
+    <%= form.time_select :event_start %>
   </div>
 
   <div class="field">
-    <%= form.label :event_title %>
-    <%= form.text_field :event_title %>
+    <%= form.label :event_end %>
+    <%= form.time_select :event_end %>
   </div>
 
   <div class="field">
-    <%= form.label :attendee_list_id %>
-    <%= form.text_field :attendee_list_id %>
+    <%= form.label :event_verification %>
+    <%= form.text_field :event_verification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_attendee_list_id %>
+    <%= form.number_field :event_attendee_list_id %>
   </div>
 
   <div class="actions">

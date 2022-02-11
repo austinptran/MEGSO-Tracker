@@ -1,38 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Event:</strong>
-  <%= @event.event_id %>
+  <strong>Event name:</strong>
+  <%= @event.event_name %>
 </p>
 
 <p>
-  <strong>Point Assess:</strong>
-  <%= @event.point_assess %>
+  <strong>Event point:</strong>
+  <%= @event.event_point %>
 </p>
 
 <p>
-  <strong>Event Location:</strong>
+  <strong>Event location:</strong>
   <%= @event.event_location %>
 </p>
 
 <p>
-  <strong>Start Time:</strong>
-  <%= @event.start_time %>
+  <strong>Event date:</strong>
+  <%= @event.event_date %>
 </p>
 
 <p>
-  <strong>End Time:</strong>
-  <%= @event.end_time %>
+  <strong>Event start:</strong>
+  <%= @event.event_start %>
 </p>
 
 <p>
-  <strong>Event Title:</strong>
-  <%= @event.event_title %>
+  <strong>Event end:</strong>
+  <%= @event.event_end %>
 </p>
 
 <p>
-  <strong>Attendee List:</strong>
-  <%= @event.attendee_list_id %>
+  <strong>Event verification:</strong>
+  <%= @event.event_verification %>
+</p>
+
+<p>
+  <strong>Event attendee list:</strong>
+  <%= @event.event_attendee_list_id %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

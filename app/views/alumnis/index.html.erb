@@ -5,9 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Alumni</th>
-      <th>LinkedIn</th>
-      <th>Occupation</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Linkedin</th>
+      <th>Alumni occupation</th>
+      <th>Alumni grad year</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +17,14 @@
   <tbody>
     <% @alumnis.each do |alumni| %>
       <tr>
-        <td><%= alumni.alumni_id %></td>
+        <td><%= alumni.first_name %></td>
+        <td><%= alumni.last_name %></td>
         <td><%= alumni.LinkedIn %></td>
-        <td><%= alumni.Occupation %></td>
+        <td><%= alumni.alumni_occupation %></td>
+        <td><%= alumni.alumni_grad_year %></td>
         <td><%= link_to 'Show', alumni %></td>
         <td><%= link_to 'Edit', edit_alumni_path(alumni) %></td>
-        <td><%= link_to 'Delete', alumni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', alumni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
