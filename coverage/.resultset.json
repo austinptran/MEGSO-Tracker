@@ -531,6 +531,7 @@
       "/csce431/app/models/event.rb": {
         "lines": [
           1,
+          1,
           null
         ]
       },
@@ -542,6 +543,6 @@
         ]
       }
     },
-    "timestamp": 1644780587
+    "timestamp": 1644782496
   }
 }
