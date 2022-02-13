@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Point Count:</strong>
+  <%= @point.point_count %>
+</p>
+
+<p>
+  <strong>Reward:</strong>
+  <%= @point.reward %>
+</p>
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

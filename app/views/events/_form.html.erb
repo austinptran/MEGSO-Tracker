@@ -12,38 +12,43 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :event_id %>
-    <%= form.text_field :event_id %>
+    <%= form.label :event_name, "Event Name" %>
+    <%= form.text_field :event_name %>
   </div>
 
   <div class="field">
-    <%= form.label :point_assess %>
-    <%= form.text_field :point_assess %>
+    <%= form.label :event_point, "Amount of Points" %>
+    <%= form.number_field :event_point %>
   </div>
 
   <div class="field">
-    <%= form.label :event_location %>
+    <%= form.label :event_location, "Event Location" %>
     <%= form.text_field :event_location %>
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
-    <%= form.date_select :start_time %>
+    <%= form.label :event_date, "Event Date" %>
+    <%= form.date_select :event_date %>
   </div>
 
   <div class="field">
-    <%= form.label :end_time %>
-    <%= form.date_select :end_time %>
+    <%= form.label :event_start, "Start Time" %>
+    <%= form.time_select :event_start %>
   </div>
 
   <div class="field">
-    <%= form.label :event_title %>
-    <%= form.text_field :event_title %>
+    <%= form.label :event_end, "End Time" %>
+    <%= form.time_select :event_end %>
   </div>
 
   <div class="field">
-    <%= form.label :attendee_list_id %>
-    <%= form.text_field :attendee_list_id %>
+    <%= form.label :event_verification, "Event Verification Code" %>
+    <%= form.text_field :event_verification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_attendee_list_id, "Attendee List ID" %>
+    <%= form.number_field :event_attendee_list_id %>
   </div>
 
   <div class="actions">

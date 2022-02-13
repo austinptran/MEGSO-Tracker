@@ -10,15 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_09_012243) do
+ActiveRecord::Schema.define(version: 2022_02_11_201543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.string "admin_name"
+    t.string "admin_pass"
+    t.string "admin_position"
+    t.string "admin_key"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "alumnis", force: :cascade do |t|
-    t.integer "alumni_id"
+    t.string "first_name"
+    t.string "last_name"
     t.string "LinkedIn"
-    t.string "Occupation"
+    t.string "alumni_occupation"
+    t.integer "alumni_grad_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,22 +42,30 @@ ActiveRecord::Schema.define(version: 2022_02_09_012243) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "companies", force: :cascade do |t|
-    t.integer "company_id"
-    t.string "company_name"
-    t.string "company_location"
+  create_table "events", force: :cascade do |t|
+    t.string "event_name"
+    t.integer "event_point"
+    t.string "event_location"
+    t.date "event_date"
+    t.time "event_start"
+    t.time "event_end"
+    t.string "event_verification"
+    t.integer "event_attendee_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "events", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "point_assess"
-    t.string "event_location"
-    t.date "start_time"
-    t.date "end_time"
-    t.string "event_title"
-    t.string "attendee_list_id"
+  create_table "occupations", force: :cascade do |t|
+    t.string "occupation_role"
+    t.string "occupation_company"
+    t.string "occupation_location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "point_count"
+    t.string "reward"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
