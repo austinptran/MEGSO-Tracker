@@ -25,7 +25,7 @@ class AlumnisController < ApplicationController
 
     respond_to do |format|
       if @alumni.save
-        format.html { redirect_to alumni_url(@alumni), notice: "Alumni was successfully created." }
+        format.html { redirect_to alumnis_url, notice: "Alumni was successfully created." }
         format.json { render :show, status: :created, location: @alumni }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class AlumnisController < ApplicationController
   def update
     respond_to do |format|
       if @alumni.update(alumni_params)
-        format.html { redirect_to alumni_url(@alumni), notice: "Alumni was successfully updated." }
+        format.html { redirect_to alumnis_url, notice: "Alumni was successfully updated." }
         format.json { render :show, status: :ok, location: @alumni }
       else
         format.html { render :edit, status: :unprocessable_entity }
