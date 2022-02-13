@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Alumni, type: :model do
+RSpec.describe 'Add an alumni', type: :feature do
   #pending "add some examples to (or delete) #{__FILE__}"
   scenario 'valid inputs' do
     visit new_alumni_path
