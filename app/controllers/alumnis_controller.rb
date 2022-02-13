@@ -48,6 +48,10 @@ class AlumnisController < ApplicationController
   end
 
   # DELETE /alumnis/1 or /alumnis/1.json
+  def delete
+    @alumni = Alumni.find(params[:id])
+  end
+
   def destroy
     @alumni.destroy
 
