@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Admin name</th>
-      <th>Admin pass</th>
-      <th>Admin position</th>
-      <th>Admin key</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Position</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,10 +18,9 @@
         <td><%= admin.admin_name %></td>
         <td><%= admin.admin_pass %></td>
         <td><%= admin.admin_position %></td>
-        <td><%= admin.admin_key %></td>
         <td><%= link_to 'Show', admin %></td>
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,3 +29,11 @@
 <br>
 
 <%= link_to 'New Admin', new_admin_path %>
+
+<br>
+
+<%= link_to 'Events', events_path %>
+
+<br>
+
+<%= link_to 'Alumni', alumnis_path %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :points
-  resources :events
+  resources :events do
+    get "list", to: "events#list"
+  end
   resources :occupations
   resources :alumnis
   resources :admins
