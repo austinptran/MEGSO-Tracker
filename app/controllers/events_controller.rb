@@ -13,8 +13,6 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-
-    @event_attendee_list_id = 100
   end
 
   # GET /events/1/edit
@@ -23,9 +21,12 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
+
     @event = Event.new(event_params) 
 
-    @event.event_set_attendee_list_token = 300
+    @attendee_list_id = SecureRandom.hex(10)
+    
+    @event.event_attendee_list_id = @attendee_list_id
 
     respond_to do |format|
       if @event.save
