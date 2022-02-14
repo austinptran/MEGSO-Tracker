@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @events = Event.all
+    @attendees = AttendeeList.where(attendee_list_id: @event.event_attendee_list_id)
   end
 
   # GET /events/new
