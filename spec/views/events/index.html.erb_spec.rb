@@ -8,14 +8,14 @@ RSpec.describe "events/index", type: :view do
         event_point: 2,
         event_location: "Event Location",
         event_verification: "Event Verification",
-        event_attendee_list_id: 3
+        event_attendee_list_id: "abv"
       ),
       Event.create!(
         event_name: "Event Name",
         event_point: 2,
         event_location: "Event Location",
         event_verification: "Event Verification",
-        event_attendee_list_id: 3
+        event_attendee_list_id: "abv"
       )
     ])
   end
@@ -26,6 +26,6 @@ RSpec.describe "events/index", type: :view do
     assert_select "tr>td", text: 2.to_s, count: 2
     assert_select "tr>td", text: "Event Location".to_s, count: 2
     assert_select "tr>td", text: "Event Verification".to_s, count: 2
-    assert_select "tr>td", text: 3.to_s, count: 2
+    assert_select "tr>td", text: "abv".to_s, count: 2
   end
 end

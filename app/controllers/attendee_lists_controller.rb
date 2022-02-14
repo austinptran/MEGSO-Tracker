@@ -23,6 +23,8 @@ class AttendeeListsController < ApplicationController
   def create
     @attendee_list = AttendeeList.new(attendee_list_params)
 
+    @attendee_list.compound_key = @attendee_list.attendee_list_id + @attendee_list.UID.to_s
+
     respond_to do |format|
       if @attendee_list.save
         format.html { redirect_to attendee_list_url(@attendee_list), notice: "Attendee list was successfully created." }
@@ -65,6 +67,6 @@ class AttendeeListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def attendee_list_params
-      params.require(:attendee_list).permit(:compound_key, :attendee_list_id, :UID)
+      params.require(:attendee_list).permit(:attendee_list_id, :UID)
     end
 end
