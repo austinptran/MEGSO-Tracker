@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     get "list", to: "events#list"
   end
   resources :occupations
-  resources :alumnis
+  resources :alumnis do
+    member do
+      get "delete", to: "alumnis#delete"
+    end
+  end
   resources :admins
   resources :students
   resources :users

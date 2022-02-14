@@ -24,7 +24,7 @@
         <td><%= alumni.alumni_grad_year %></td>
         <td><%= link_to 'Show', alumni %></td>
         <td><%= link_to 'Edit', edit_alumni_path(alumni) %></td>
-        <td><%= link_to 'Destroy', alumni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', delete_alumni_path(alumni) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Alumni', new_alumni_path %>
+<%= link_to 'Add Alumni', new_alumni_path %>
