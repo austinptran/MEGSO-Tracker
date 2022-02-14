@@ -1,0 +1,13 @@
+<h1>Delete Event</h1>
+
+
+<p>Are you sure you want to delete this event?</p>
+
+<p> <b>Event Name:</b> <%= @event.event_name %> </p>
+<p> <b>Event Location:</b> <%= @event.event_location %> </p>
+<p> <b>Event Start Date/Time:</b> <%= @event.event_start %> </p>
+<p> <b>Event End Date/Time:</b> <%= @event.event_end %> </p>
+
+
+<td><%= link_to 'Yes', @event, method: :delete%></td>|
+<%= link_to 'Back', events_path %>

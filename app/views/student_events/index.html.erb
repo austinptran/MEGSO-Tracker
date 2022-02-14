@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>Event List</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Event Name</th>
+      <th>Name</th>
       <th>Amount of Points</th>
-      <th>Event Location</th>
-      <th>Event Date</th>
+      <th>Location</th>
+      <th>Date</th>
       <th>Start Time</th>
       <th>End Time</th>
-      <th>Event Verification Code</th>
-      <th>Attendee List ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,16 +24,7 @@
         <td><%= event.event_date %></td>
         <td><%= event.event_start %></td>
         <td><%= event.event_end %></td>
-        <td><%= event.event_verification %></td>
-        <td><%= event.event_attendee_list_id %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', delete_event_path(event) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
