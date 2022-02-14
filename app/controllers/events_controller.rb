@@ -12,6 +12,11 @@ class EventsController < ApplicationController
     @attendees = AttendeeList.where(attendee_list_id: @event.event_attendee_list_id)
   end
 
+   # GET /events/new
+  def signup
+    @events = Event.signup
+  end
+
   # GET /events/new
   def new
     @event = Event.new
@@ -20,6 +25,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
   end
+  
 
   # POST /events or /events.json
   def create
