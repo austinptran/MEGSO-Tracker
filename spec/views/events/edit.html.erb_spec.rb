@@ -7,7 +7,7 @@ RSpec.describe "events/edit", type: :view do
       event_point: 1,
       event_location: "MyString",
       event_verification: "MyString",
-      event_attendee_list_id: 1
+      event_attendee_list_id: "abv"
     ))
   end
 

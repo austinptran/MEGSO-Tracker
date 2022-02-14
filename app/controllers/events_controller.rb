@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 
     @event = Event.new(event_params) 
 
-    @attendee_list_id = SecureRandom.hex(10)
+    @attendee_list_id = generate_token
     
     @event.event_attendee_list_id = @attendee_list_id
 

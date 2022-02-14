@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_02_11_201543) do
     t.time "event_start"
     t.time "event_end"
     t.string "event_verification"
-    t.integer "event_attendee_list_id"
+    t.string "event_attendee_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
