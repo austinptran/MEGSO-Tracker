@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :student_events
 
   get 'events/delete/:id', to:'events#delete', as:'delete_event'
+  get 'events/signup/:id', to:'events#signup', as:'signup_events'
 
   root 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
