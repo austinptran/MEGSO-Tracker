@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @events = Event.all
+    @attendees = AttendeeList.where(attendee_list_id: @event.event_attendee_list_id)
   end
 
   # GET /events/new
@@ -21,7 +23,12 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+
+    @event = Event.new(event_params) 
+
+    @attendee_list_id = generate_token
+    
+    @event.event_attendee_list_id = @attendee_list_id
 
     respond_to do |format|
       if @event.save
@@ -70,8 +77,18 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    #generate id token
+    def generate_token
+      loop do
+        token = SecureRandom.hex(10)
+
+        break token unless Event.where(event_attendee_list_id: token).exists?
+      end
+    end
+
+
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:event_name, :event_point, :event_location, :event_date, :event_start, :event_end, :event_verification, :event_attendee_list_id)
+      params.require(:event).permit(:event_name, :event_point, :event_location, :event_date, :event_start, :event_end, :event_verification)
     end
 end

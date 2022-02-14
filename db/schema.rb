@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2022_02_11_201543) do
   end
 
   create_table "attendee_lists", force: :cascade do |t|
-    t.integer "compound_key"
+    t.string "compound_key"
     t.string "attendee_list_id"
     t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_02_11_201543) do
     t.time "event_start"
     t.time "event_end"
     t.string "event_verification"
-    t.integer "event_attendee_list_id"
+    t.string "event_attendee_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

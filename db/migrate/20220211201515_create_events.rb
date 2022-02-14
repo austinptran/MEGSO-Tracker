@@ -8,7 +8,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.time :event_start
       t.time :event_end
       t.string :event_verification
-      t.integer :event_attendee_list_id
+      t.string :event_attendee_list_id
 
       t.timestamps
     end
