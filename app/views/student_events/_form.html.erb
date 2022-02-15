@@ -1,0 +1,23 @@
+<%= form_with(model: student_event) do |form| %>
+  
+
+
+<div class="field">
+    <%= form.label :UIN, "UIN" %>
+    <%= form.text_field :UIN %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_name, "Name" %>
+    <%= form.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_verification, "Event Verification Code" %>
+    <%= form.text_field :event_verification %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% end %>
