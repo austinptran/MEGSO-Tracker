@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2022_02_11_201543) do
   end
 
   create_table "attendee_lists", force: :cascade do |t|
-    t.string "compound_key"
     t.string "attendee_list_id"
     t.integer "UID"
     t.datetime "created_at", precision: 6, null: false

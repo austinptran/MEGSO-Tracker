@@ -17,7 +17,7 @@ class AttendeeListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create attendee_list" do
     assert_difference('AttendeeList.count') do
-      post attendee_lists_url, params: { attendee_list: { UID: @attendee_list.UID, attendee_list_id: @attendee_list.attendee_list_id, compound_key: @attendee_list.compound_key } }
+      post attendee_lists_url, params: { attendee_list: { UID: @attendee_list.UID, attendee_list_id: @attendee_list.attendee_list_id} }
     end
 
     assert_redirected_to attendee_list_url(AttendeeList.last)
@@ -34,7 +34,7 @@ class AttendeeListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update attendee_list" do
-    patch attendee_list_url(@attendee_list), params: { attendee_list: { UID: @attendee_list.UID, attendee_list_id: @attendee_list.attendee_list_id, compound_key: @attendee_list.compound_key } }
+    patch attendee_list_url(@attendee_list), params: { attendee_list: { UID: @attendee_list.UID, attendee_list_id: @attendee_list.attendee_list_id} }
     assert_redirected_to attendee_list_url(@attendee_list)
   end
 

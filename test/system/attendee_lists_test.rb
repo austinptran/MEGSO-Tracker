@@ -16,7 +16,6 @@ class AttendeeListsTest < ApplicationSystemTestCase
 
     fill_in "Uid", with: @attendee_list.UID
     fill_in "Attendee list", with: @attendee_list.attendee_list_id
-    fill_in "Compound key", with: @attendee_list.compound_key
     click_on "Create Attendee list"
 
     assert_text "Attendee list was successfully created"
@@ -29,7 +28,6 @@ class AttendeeListsTest < ApplicationSystemTestCase
 
     fill_in "Uid", with: @attendee_list.UID
     fill_in "Attendee list", with: @attendee_list.attendee_list_id
-    fill_in "Compound key", with: @attendee_list.compound_key
     click_on "Update Attendee list"
 
     assert_text "Attendee list was successfully updated"

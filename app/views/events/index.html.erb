@@ -29,6 +29,7 @@
         <td><%= event.event_verification %></td>
         <td><%= event.event_attendee_list_id %></td>
         <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Verify Attendance', verify_event_path(event) %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', delete_event_path(event) %></td>
       </tr>
@@ -37,5 +38,4 @@
 </table>
 
 <br>
-
 <%= link_to 'New Event', new_event_path %>

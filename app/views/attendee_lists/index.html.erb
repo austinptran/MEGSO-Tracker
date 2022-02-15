@@ -15,7 +15,6 @@
   <tbody>
     <% @attendee_lists.each do |attendee_list| %>
       <tr>
-        <td><%= attendee_list.compound_key %></td>
         <td><%= attendee_list.attendee_list_id %></td>
         <td><%= attendee_list.UID %></td>
         <td><%= link_to 'Show', attendee_list %></td>

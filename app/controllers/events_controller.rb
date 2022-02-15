@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy delete ]
+  before_action :set_event, only: %i[ show edit update destroy delete verify verification]
 
   # GET /events or /events.json
   def index
@@ -71,6 +71,14 @@ class EventsController < ApplicationController
     @event = Event.all
   end
 
+  # VERIFY /events/1/verify or /events/1.json/verify
+  def verify()
+  end
+
+  # PATCH/PUT /events/1 or /events/1.json
+  def verify
+  end  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -83,6 +91,17 @@ class EventsController < ApplicationController
         token = SecureRandom.hex(10)
 
         break token unless Event.where(event_attendee_list_id: token).exists?
+      end
+    end
+
+    #check verification code
+    def verification
+      @event = Event.find(params[:id])
+
+      if @event.event_verification == params[:event_verification_code]
+        redirect_to :events, notice: "Your attendence has been recorded!"
+      else
+        redirect_to :events, notice: "Wrong verification code"
       end
     end
 

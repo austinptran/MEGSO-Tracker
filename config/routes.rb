@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   resources :points
   resources :events do
-    get "list", to: "events#list"
+    member do
+      get :verify
+      post :verify
+      get :list
+      get :delete
+    end
   end
   resources :occupations
   resources :alumnis do
@@ -15,7 +20,11 @@ Rails.application.routes.draw do
   resources :attendee_lists
   resources :student_events
 
-  get 'events/delete/:id', to:'events#delete', as:'delete_event'
+  match '/events', to: 'events#index', via: ['get', 'post']
+  match '/events/:id/verify', to: 'events#verify', via: ['get', 'post']
+  #post 'events/:id/verify', to: 'events#verify'
+
+  
 
   root 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

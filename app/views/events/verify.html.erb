@@ -1,0 +1,20 @@
+<%= link_to 'Back', events_path %>
+
+<div class="events verify">
+  <h2>Verify Event</h2>
+
+  <%= form_with(model: @event) do |f| %>
+
+    <p>Enter registration code</p>
+
+    <div class="field">
+        <%= f.label :event_verification_code, "Verification code" %>
+        <%= f.text_field :event_verification %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit("Submit") %>
+    </div>
+
+  <% end %>
+</div>

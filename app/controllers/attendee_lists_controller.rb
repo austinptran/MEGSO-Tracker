@@ -21,9 +21,13 @@ class AttendeeListsController < ApplicationController
 
   # POST /attendee_lists or /attendee_lists.json
   def create
-    @attendee_list = AttendeeList.new(attendee_list_params)
 
-    @attendee_list.compound_key = @attendee_list.attendee_list_id + @attendee_list.UID.to_s
+    @event = Event.find_by event_attendee_list_id: params[:attendee_list_id]
+
+    @attendee_list = AttendeeLists.new(attendee_list_params, )
+
+
+    #@attendee_list.compound_key = @attendee_list.attendee_list_id + @attendee_list.UID.to_s
 
     respond_to do |format|
       if @attendee_list.save

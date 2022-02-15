@@ -41,16 +41,18 @@
 </p>
 
 <p>  
-  <strong>Attendence List</strong>
+  <strong>Attendence List: </strong>
   <table>
     <p>
-    <%= @attendees.each do |attendee_list| %>
+    <%= AttendeeList.all.each do |attendee_list| %>
       <tr>
-        <td><%= attendee_list.compound_key %></td>
+      <% if attendee_list.to_s.include?(@event.event_attendee_list_id) %>
         <td><%= attendee_list.attendee_list_id %></td>
         <td><%= attendee_list.UID %></td>
+      <% end %>
       </tr>
     <% end %>
+      
     </p>
   </p>
 </table>
