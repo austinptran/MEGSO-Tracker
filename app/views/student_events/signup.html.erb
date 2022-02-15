@@ -1,0 +1,7 @@
+<h1>Sign Up for Event</h1>
+
+<p> <b>Event Name:</b> <%= @event.event_name %> </p>
+
+<%= render 'form', student_event: @student_event %>
+
+<%= link_to 'Back', student_events_path %>

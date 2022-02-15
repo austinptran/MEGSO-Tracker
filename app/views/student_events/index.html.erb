@@ -16,14 +16,15 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <% @student_events.each do |student_event| %>
       <tr>
-        <td><%= event.event_name %></td>
-        <td><%= event.event_point %></td>
-        <td><%= event.event_location %></td>
-        <td><%= event.event_date %></td>
-        <td><%= event.event_start %></td>
-        <td><%= event.event_end %></td>
+        <td><%= student_event.event_name %></td>
+        <td><%= student_event.event_point %></td>
+        <td><%= student_event.event_location %></td>
+        <td><%= student_event.event_date %></td>
+        <td><%= student_event.event_start %></td>
+        <td><%= student_event.event_end %></td>
+        <td><%= link_to 'Sign Up', signup_event_path(student_event) %></td>
       </tr>
     <% end %>
   </tbody>
