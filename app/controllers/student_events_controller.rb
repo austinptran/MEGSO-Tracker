@@ -1,5 +1,5 @@
 class StudentEventsController < ApplicationController
-  before_action :set_event, only: %i[ show new ]
+  before_action :set_event, only: %i[ show new signup ]
     # GET /events or /events.json
     def index
       @student_events = Event.all
@@ -7,6 +7,10 @@ class StudentEventsController < ApplicationController
 
     def show
     end
+
+    def signup
+    end
+
 
     def new
       @student_event = StudentEvent.new
