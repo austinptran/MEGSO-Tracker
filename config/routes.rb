@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :attendee_lists
   resources :student_events
+  resources :student_points
 
   get 'events/delete/:id', to:'events#delete', as:'delete_event'
   get 'student_events/signup/:id', to:'student_events#signup', as:'signup_event'
