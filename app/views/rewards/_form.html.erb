@@ -1,0 +1,27 @@
+<%= form_with(model: reward) do |form| %>
+  <% if reward.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reward.errors.count, "error") %> prohibited this reward from being saved:</h2>
+
+      <ul>
+        <% reward.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reward_name %>
+    <%= form.text_field :reward_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reward_points %>
+    <%= form.number_field :reward_points %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
