@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>Event List (Admin)</h1>
 
 <table>
   <thead>
@@ -27,7 +27,6 @@
         <td><%= event.event_start %></td>
         <td><%= event.event_end %></td>
         <td><%= event.event_verification %></td>
-        <td><%= event.event_attendee_list_id %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', delete_event_path(event) %></td>
@@ -39,3 +38,33 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+
+<h1>Event List (Student)</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount of Points</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.event_name %></td>
+        <td><%= event.event_point %></td>
+        <td><%= event.event_location %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.event_start %></td>
+        <td><%= event.event_end %></td>
+        <td><%= link_to 'Sign Up', signup_event_path(event) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

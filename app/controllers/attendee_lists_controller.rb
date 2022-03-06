@@ -23,7 +23,7 @@ class AttendeeListsController < ApplicationController
   def create
     @attendee_list = AttendeeList.new(attendee_list_params)
 
-    @attendee_list.compound_key = @attendee_list.attendee_list_id + @attendee_list.UID.to_s
+    @attendee_list.compound_key = attendee_list.id + @attendee_list.UID.to_s
 
     respond_to do |format|
       if @attendee_list.save

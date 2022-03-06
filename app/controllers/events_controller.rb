@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     @events = Event.all
-    @attendees = AttendeeList.where(attendee_list_id: @event.event_attendee_list_id)
+    @attendees = AttendeeList.where(id: @event.id)
   end
 
   # GET /events/new
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
 
     @attendee_list_id = generate_token
     
-    @event.event_attendee_list_id = @attendee_list_id
+    @event.id = @attendee_list_id
 
     respond_to do |format|
       if @event.save
@@ -82,7 +82,7 @@ class EventsController < ApplicationController
       loop do
         token = SecureRandom.hex(10)
 
-        break token unless Event.where(event_attendee_list_id: token).exists?
+        break token unless Event.where(id: token).exists?
       end
     end
 
