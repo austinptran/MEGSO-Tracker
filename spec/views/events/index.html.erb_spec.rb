@@ -8,14 +8,12 @@ RSpec.describe "events/index", type: :view do
         event_point: 2,
         event_location: "Event Location",
         event_verification: "Event Verification",
-        event_attendee_list_id: "abv"
       ),
       Event.create!(
         event_name: "Event Name",
         event_point: 2,
         event_location: "Event Location",
         event_verification: "Event Verification",
-        event_attendee_list_id: "abv"
       )
     ])
   end
