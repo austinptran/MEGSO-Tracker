@@ -11,5 +11,16 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe AlumnisHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#check_linkedin" do
+		it "returns the linkedin url"
+			assign(:LinkedIn, "https://www.linkedin.com/in/example")
+			helper.check_linkedin.should eql("https://www.linkedin.com/in/example")
+		end
+	end
+	describe "#check_grad_year" do
+		it "returns the grad year" do
+			assign(:alumni_grad_year, "2022")
+			helper.check_grad_year.should eql("2022")
+		end
+	end
 end
