@@ -5,13 +5,14 @@
 <table>
   <thead>
     <tr>
-      <th>Event Name</th>
-      <th>Amount of Points</th>
-      <th>Event Location</th>
-      <th>Event Date</th>
+      <th>Name</th>
+      <th>Points</th>
+      <th>Location</th>
+      <th>Date</th>
       <th>Start Time</th>
       <th>End Time</th>
-      <th>Event Verification Code</th>
+      <th>Code</th>
+      <th>Attendees</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
         <td><%= event.event_start %></td>
         <td><%= event.event_end %></td>
         <td><%= event.event_verification %></td>
+        <td><%= link_to 'View', event_attendee_lists_path(event) %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', delete_event_path(event) %></td>

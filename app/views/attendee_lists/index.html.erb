@@ -13,15 +13,10 @@
   <tbody>
     <% @attendee_lists.each do |attendee_list| %>
       <tr>
-        <td><%= attendee_list.id %></td>
-        <td><%= link_to 'Show', attendee_list %></td>
-        <td><%= link_to 'Edit', edit_attendee_list_path(attendee_list) %></td>
-        <td><%= link_to 'Delete', attendee_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= attendee_list.created_at %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Register for Event', new_attendee_list_path %>

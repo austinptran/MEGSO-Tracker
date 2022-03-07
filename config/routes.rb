@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   end
   resources :admins
   resources :students
-  resources :attendee_lists
-  resources :student_events
 
   get 'events/delete/:id', to: 'events#delete', as: 'delete_event'
   get 'events/signup/:id', to: 'events#signup', as: 'signup_event'
