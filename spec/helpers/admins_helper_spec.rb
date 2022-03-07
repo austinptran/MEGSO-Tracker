@@ -11,5 +11,10 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe AdminsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#admins_key" do
+		it "returns the admin key" do
+			assign(:admin_key, "2jnjnasdf")
+			helper.admins_key.should eql("2jnjnasdf")
+		end
+	end
 end
