@@ -51,7 +51,7 @@
   </thead>
 
   <tbody>
-    <% AttendeeList.all.each do |attendee_list| %>
+    <% @attendees.each do |attendee_list| %>
       <tr>
         <td><%= get_current_user_first_name attendee_list.UID %></td>
       </tr>

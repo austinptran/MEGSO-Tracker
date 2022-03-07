@@ -61,7 +61,11 @@ class EventsController < ApplicationController
   def destroy
     set_event
 
-    @attendee_list = 
+    @delete_attendees = AttendeeList.where(attendee_list_id: @event.event_attendee_list_id)
+
+    @delete_attendees.each do |attendee|
+      attendee.destroy
+    end
 
     @event.destroy
 

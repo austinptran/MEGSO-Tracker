@@ -1,1 +1,14 @@
-<%= @user.first_name %>, <%= @user.email %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attendee List ID:</strong>
+  <%= @attendee_list.attendee_list_id %>
+</p>
+
+<p>
+  <strong>UID:</strong>
+  <%= @attendee_list.UID %>
+</p>
+
+<%= link_to 'Edit', edit_attendee_list_path(@user) %> |
+<%= link_to 'Back', users_path %>
