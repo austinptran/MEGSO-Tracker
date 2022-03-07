@@ -61,7 +61,7 @@ class EventsController < ApplicationController
   def destroy
     set_event
 
-    
+    @attendee_list = 
 
     @event.destroy
 
