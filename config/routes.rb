@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-
   resources :events
 
   get 'events/delete/:id', to:'events#delete', as:'delete_event'
