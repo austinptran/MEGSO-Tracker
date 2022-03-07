@@ -3,8 +3,7 @@ class RewardsController < ApplicationController
 
   # GET /rewards or /rewards.json
   def index
-    #@rewards = Reward.all
-		@rewards= Reward.all.sort_by{|reward| -reward.reward_points}
+    @rewards = Reward.all
   end
 
   # GET /rewards/1 or /rewards/1.json

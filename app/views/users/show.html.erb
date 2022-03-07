@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>First UID:</strong>
+  <%= @user.UID %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @user.points %>
+</p>
+
+<p>
+  <strong>Rewards Earned:</strong>
+  <%= @user.rewards_earned %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

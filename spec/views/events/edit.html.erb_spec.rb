@@ -7,6 +7,7 @@ RSpec.describe "events/edit", type: :view do
       event_point: 1,
       event_location: "MyString",
       event_verification: "MyString",
+      event_attendee_list_id: "abv"
     ))
   end
 
@@ -23,6 +24,7 @@ RSpec.describe "events/edit", type: :view do
 
       assert_select "input[name=?]", "event[event_verification]"
 
+      assert_select "input[name=?]", "event[event_attendee_list_id]"
     end
   end
 end
