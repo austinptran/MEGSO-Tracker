@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    after_initialize :set_defaults, unless: :persisted?
+
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
     validates :first_name, length: { maximum: 50 }
@@ -27,5 +29,10 @@ class User < ApplicationRecord
     def remember
         self.remember_token = User.new_token
         update_attribute(:remember_digest, User.digest(remember_token))
+    end
+
+    def set_defaults
+        self.points ||= 0
+        self.rewards_earned ||= 0
     end
 end

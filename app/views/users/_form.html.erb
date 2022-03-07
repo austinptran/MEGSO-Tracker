@@ -1,10 +1,10 @@
-<%= form_with(model: users) do |form| %>
+<%= form_with(model: user) do |form| %>
     <% if user.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(attendee_list.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
   
         <ul>
-          <% attendee_list.errors.each do |error| %>
+          <% user.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
@@ -13,13 +13,57 @@
   
     <div class="field">
       <%= form.label :first_name, "First Name" %>
-      <%= form.text_field :attendee_list_id %>
+      <%= form.text_field :first_name %>
     </div>
-  
+
+    <div class="field">
+      <%= form.label :last_name, "Last Name" %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email, "Email" %>
+      <%= form.email_field :email %>
+    </div>
+
     <div class="field">
       <%= form.label :UID, "UID" %>
-      <%= form.text_field :UID %>
+      <%= form.number_field :UID %>
     </div>
+
+    <div class="field">
+      <%= form.label :points, "Points" %>
+      <%= form.number_field :points %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rewards_earned, "Rewards Earned" %>
+      <%= form.number_field :rewards_earned %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, "Password" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation, "Password Confirmation" %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+    <% if is_officer? @user %>
+      <div class="field">
+        <%= form.label :position, "Position" %>
+        <%= form.text_field :position %>
+      </div>
+    <% end %>
+
+    <% if is_admin? @user %>
+      <div class="field">
+      <%= form.label :is_officer, "Is Officer?" %>
+      <%= form.check_box :is_officer %>
+      </div>
+    <% end %>
   
     <div class="actions">
       <%= form.submit %>

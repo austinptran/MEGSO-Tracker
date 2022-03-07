@@ -1,14 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Attendee List ID:</strong>
-  <%= @attendee_list.attendee_list_id %>
+  <strong>First Name:</strong>
+  <%= @user.first_name %>
 </p>
 
 <p>
-  <strong>UID:</strong>
-  <%= @attendee_list.UID %>
+  <strong>Last Name:</strong>
+  <%= @user.last_name %>
 </p>
 
-<%= link_to 'Edit', edit_attendee_list_path(@user) %> |
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>First UID:</strong>
+  <%= @user.UID %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @user.points %>
+</p>
+
+<p>
+  <strong>Rewards Earned:</strong>
+  <%= @user.rewards_earned %>
+</p>
+
+<% if is_officer? @user %>
+  <p>
+    <strong>Position:</strong>
+    <%= @user.position %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
