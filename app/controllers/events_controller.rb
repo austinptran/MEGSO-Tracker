@@ -27,7 +27,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    @attendee_list = AttendeeList.new(id: @event.id)
+		event_attendee_list_id = @event.id
+
+    @attendee_list = AttendeeList.new(id: event_attendee_list_id)
 
     respond_to do |format|
       if @event.save && @attendee_list.save
@@ -58,7 +60,10 @@ class EventsController < ApplicationController
   # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy!
-    @attendee_list.destroy!
+
+		@attendee_list = AttendeeList.find(params[:id])
+
+		@attendee_list.destroy!
 
     respond_to do |format|
       format.html { redirect_to(events_url, notice: 'Event was successfully destroyed.') }

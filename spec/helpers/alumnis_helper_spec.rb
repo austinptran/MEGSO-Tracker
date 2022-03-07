@@ -12,7 +12,7 @@ require 'rails_helper'
 # end
 RSpec.describe AlumnisHelper, type: :helper do
   describe "#check_linkedin" do
-		it "returns the linkedin url"
+		it "returns the linkedin url" do
 			assign(:LinkedIn, "https://www.linkedin.com/in/example")
 			helper.check_linkedin.should eql("https://www.linkedin.com/in/example")
 		end
