@@ -10,19 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_170223) do
+ActiveRecord::Schema.define(version: 2022_03_07_200446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "alumnis", force: :cascade do |t|
-    t.string "alumni_first_name"
-    t.string "alumni_last_name"
     t.string "LinkedIn"
-    t.string "alumni_occupation"
     t.integer "alumni_grad_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "highest_position"
   end
 
   create_table "attendee_lists", force: :cascade do |t|
@@ -53,6 +51,12 @@ ActiveRecord::Schema.define(version: 2022_03_07_170223) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "officers", force: :cascade do |t|
+    t.string "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "rewards", force: :cascade do |t|
     t.string "reward_name"
     t.integer "reward_points"
@@ -67,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_170223) do
     t.integer "UID"
     t.boolean "is_admin"
     t.boolean "is_officer"
-    t.boolean "position"
+    t.boolean "position" #to be taken out later
     t.integer "points"
     t.integer "rewards_earned"
     t.datetime "created_at", precision: 6, null: false
