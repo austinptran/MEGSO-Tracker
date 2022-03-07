@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :rewards
   resources :events do
     get "list", to: "events#list"
+		resources :attendee_lists
   end
   resources :occupations
   resources :alumnis do

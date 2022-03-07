@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+		@attendee_list = AttendeeList.new
   end
 
   # GET /events/1/edit
@@ -24,14 +25,12 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
 
-    @event = Event.new(event_params) 
+    @event = Event.new(event_params)
 
-    @attendee_list_id = generate_token
-    
-    @event.id = @attendee_list_id
+		@attendee_list = AttendeeList.new(id: @event.id)
 
     respond_to do |format|
-      if @event.save
+      if @event.save && @attendee_list.save
         format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
@@ -60,6 +59,7 @@ class EventsController < ApplicationController
   # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy
+		@attendee_list.destroy
 
     respond_to do |format|
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
@@ -70,6 +70,12 @@ class EventsController < ApplicationController
   def list
     @event = Event.all
   end
+
+	def signup
+		@event_id = @event.id
+		
+
+	end
 
   private
     # Use callbacks to share common setup or constraints between actions.

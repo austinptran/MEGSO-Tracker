@@ -21,9 +21,7 @@ class AttendeeListsController < ApplicationController
 
   # POST /attendee_lists or /attendee_lists.json
   def create
-    @attendee_list = AttendeeList.new(attendee_list_params)
-
-    @attendee_list.compound_key = attendee_list.id + @attendee_list.UID.to_s
+    @attendee_list = AttendeeList.new
 
     respond_to do |format|
       if @attendee_list.save
@@ -67,6 +65,6 @@ class AttendeeListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def attendee_list_params
-      params.require(:attendee_list).permit(:attendee_list_id, :UID)
+      params.require(:attendee_list).permit()
     end
 end
