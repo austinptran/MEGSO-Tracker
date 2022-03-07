@@ -4,6 +4,4 @@ module RewardsHelper
         @user = User.find_by(UID: uid)
         @points = @user.points
       end
-    
-
 end

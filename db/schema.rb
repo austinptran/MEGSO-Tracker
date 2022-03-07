@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_200446) do
     t.integer "UID"
     t.boolean "is_admin"
     t.boolean "is_officer"
-    t.boolean "position"
+    t.boolean "position" #to be taken out later
     t.integer "points"
     t.integer "rewards_earned"
     t.datetime "created_at", precision: 6, null: false
