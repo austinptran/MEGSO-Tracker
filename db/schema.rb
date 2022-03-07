@@ -10,23 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_031821) do
+ActiveRecord::Schema.define(version: 2022_03_07_044842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "admin_name"
-    t.string "admin_pass"
-    t.string "admin_position"
-    t.string "admin_key"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "alumnis", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "alumni_first_name"
+    t.string "alumni_last_name"
     t.string "LinkedIn"
     t.string "alumni_occupation"
     t.integer "alumni_grad_year"
@@ -35,7 +26,6 @@ ActiveRecord::Schema.define(version: 2022_03_07_031821) do
   end
 
   create_table "attendee_lists", force: :cascade do |t|
-    t.string "compound_key"
     t.string "attendee_list_id"
     t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
@@ -70,21 +60,16 @@ ActiveRecord::Schema.define(version: 2022_03_07_031821) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.integer "UIN"
-    t.integer "points"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
     t.integer "UID"
-    t.integer "age"
-    t.string "address"
-    t.string "phone"
-    t.string "gender"
+    t.boolean "is_admin"
+    t.boolean "is_officer"
+    t.boolean "position"
+    t.integer "points"
+    t.integer "rewards_earned"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"

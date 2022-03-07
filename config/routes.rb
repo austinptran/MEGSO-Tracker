@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   resources :events do
     get "list", to: "events#list"
   end
+
+  post 'events/register/:id', to: 'events#register', as:'register_event'
+
   resources :occupations
   resources :alumnis do
     member do
       get "delete", to: "alumnis#delete"
     end
   end
-  resources :admins
-  resources :students
   resources :users
 
   get 'signup', to: 'users#new'
@@ -21,7 +22,9 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :attendee_lists
-  resources :student_events
+
+
+  resources :events
 
   get 'events/delete/:id', to:'events#delete', as:'delete_event'
   get 'student_events/signup/:id', to:'student_events#signup', as:'signup_event'

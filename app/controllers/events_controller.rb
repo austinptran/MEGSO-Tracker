@@ -59,6 +59,10 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    set_event
+
+    
+
     @event.destroy
 
     respond_to do |format|
@@ -69,6 +73,18 @@ class EventsController < ApplicationController
 
   def list
     @event = Event.all
+  end
+
+  # Used to create an attendence list when the user hits a button
+  def register
+    set_event
+    @event_id = @event.event_attendee_list_id
+    @member = current_user
+    if AttendeeList.exists?(attendee_list_id: @event_id, UID: @member.UID)
+      redirect_to :events, notice: "You have aleady registered for that event."
+    else 
+      @new_event = AttendeeList.create(attendee_list_id: @event_id, UID: @member.UID)
+    end
   end
 
   private
