@@ -12,10 +12,10 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/points", type: :request do
+RSpec.describe "/rewards", type: :request do
   
   # This should return the minimal set of attributes required to create a valid
-  # Point. As you add validations to Point, be sure to
+  # Reward. As you add validations to Reward, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -27,58 +27,58 @@ RSpec.describe "/points", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Point.create! valid_attributes
-      get points_url
+      Reward.create! valid_attributes
+      get rewards_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      point = Point.create! valid_attributes
-      get point_url(point)
+      reward = Reward.create! valid_attributes
+      get reward_url(reward)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_point_url
+      get new_reward_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "renders a successful response" do
-      point = Point.create! valid_attributes
-      get edit_point_url(point)
+      reward = Reward.create! valid_attributes
+      get edit_reward_url(reward)
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Point" do
+      it "creates a new Reward" do
         expect {
-          post points_url, params: { point: valid_attributes }
-        }.to change(Point, :count).by(1)
+          post rewards_url, params: { reward: valid_attributes }
+        }.to change(Reward, :count).by(1)
       end
 
-      it "redirects to the created point" do
-        post points_url, params: { point: valid_attributes }
-        expect(response).to redirect_to(point_url(Point.last))
+      it "redirects to the created reward" do
+        post rewards_url, params: { reward: valid_attributes }
+        expect(response).to redirect_to(reward_url(Reward.last))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Point" do
+      it "does not create a new Reward" do
         expect {
-          post points_url, params: { point: invalid_attributes }
-        }.to change(Point, :count).by(0)
+          post rewards_url, params: { reward: invalid_attributes }
+        }.to change(Reward, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post points_url, params: { point: invalid_attributes }
+        post rewards_url, params: { reward: invalid_attributes }
         expect(response).to be_successful
       end
     end
@@ -90,42 +90,42 @@ RSpec.describe "/points", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested point" do
-        point = Point.create! valid_attributes
-        patch point_url(point), params: { point: new_attributes }
-        point.reload
+      it "updates the requested reward" do
+        reward = Reward.create! valid_attributes
+        patch reward_url(reward), params: { reward: new_attributes }
+        reward.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the point" do
-        point = Point.create! valid_attributes
-        patch point_url(point), params: { point: new_attributes }
-        point.reload
-        expect(response).to redirect_to(point_url(point))
+      it "redirects to the reward" do
+        reward = Reward.create! valid_attributes
+        patch reward_url(reward), params: { reward: new_attributes }
+        reward.reload
+        expect(response).to redirect_to(reward_url(reward))
       end
     end
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        point = Point.create! valid_attributes
-        patch point_url(point), params: { point: invalid_attributes }
+        reward = Reward.create! valid_attributes
+        patch reward_url(reward), params: { reward: invalid_attributes }
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested point" do
-      point = Point.create! valid_attributes
+    it "destroys the requested reward" do
+      reward = Reward.create! valid_attributes
       expect {
-        delete point_url(point)
-      }.to change(Point, :count).by(-1)
+        delete reward_url(reward)
+      }.to change(Reward, :count).by(-1)
     end
 
-    it "redirects to the points list" do
-      point = Point.create! valid_attributes
-      delete point_url(point)
-      expect(response).to redirect_to(points_url)
+    it "redirects to the rewards list" do
+      reward = Reward.create! valid_attributes
+      delete reward_url(reward)
+      expect(response).to redirect_to(rewards_url)
     end
   end
 end

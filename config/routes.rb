@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
+  resources :rewards
   get 'users/new'
   get 'sessions/new'
-  resources :points
   resources :events do
     get "list", to: "events#list"
+    resources :attendee_lists
   end
 
   post 'events/register/:id', to: 'events#register', as:'register_event'
 
-  resources :occupations
   resources :alumnis do
+    resources :occupations
     member do
       get "delete", to: "alumnis#delete"
     end
@@ -20,8 +21,6 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-
-  resources :attendee_lists
 
 
   resources :events
