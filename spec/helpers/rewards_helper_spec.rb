@@ -11,5 +11,16 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe RewardsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#check_reward_name" do
+		it "returns correct reward name" do
+			assign(:reward_name, "Teddy Bear")
+			helper.check_reward_name.should eql("Teddy Bear")
+		end
+	end
+	describe "#check_reward_points" do
+		it "returns correct reward points" do
+			assign(:reward_points, "5")
+			helper.check_reward_points.should eql("5")
+		end
+	end
 end
