@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module UsersHelper
-      # Returns true if the user is officer
+  # Returns true if the user is officer
   def is_officer?(user)
     user.is_officer?
   end
@@ -7,9 +9,13 @@ module UsersHelper
   def is_admin?(user)
     user.is_admin?
   end
-    # Returns the user's name
-  def get_current_user_first_name(uid)
-    @user = User.find_by(UID: uid)
-    @first_name = @user.first_name
+  
+  def check_first_name
+    @first_name || nil
+  end
+
+  def check_user_email
+    @email || nil
+
   end
 end
