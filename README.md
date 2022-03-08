@@ -2,7 +2,9 @@
 
 ## Introduction ##
 
-Application Description
+Our team has been tasked with creating a web application for the Mechanical Engineering Graduate Student Organization (MEGSO) at 
+Texas A&M University. This application will allow MEGSO student members to sign up for events, as well as enable the organization officers keep track of memebers' attendance and award points based on the events atteneded. In addition, our web app functions as an alumni tracker, where MEGSO officers can see detailed information about the past MEGSO memebers that held office in the organization. Alumni will be tracked mainly through basic information such as graduation year, current company, current job position held, and occupation. 
+
 
 ## Requirements ##
 
@@ -39,7 +41,7 @@ An RSpec test suite is available and can be ran using:
 
 Run the following code in Powershell if using windows or the terminal using Linux/Mac
 
-  `cd your_github_here`
+  `cd MEGSO-Tracker`
 
   `docker run --rm -it --volume "$(pwd):/rails_app" -e DATABASE_USER=test_app -e DATABASE_PASSWORD=test_password -p 3000:3000 dmartinez05/ruby_rails_postgresql:latest`
 
@@ -60,12 +62,34 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 ## Deployment ##
 
-** Add instructions about how to deploy to Heroku
+Setup a Heroku account: https://signup.heroku.com/
+
+From the heroku dashboard Click the `New` button in the top right of your app list and select `Create New Pipline`
+
+Name the pipeline, and connect the respective git repo to the pipline. Be sure to click the `Create Pipeline` button.
+
+Our application does not need any extra options, so select `Enable Review Apps` right away
+
+Click `New app` under review apps, and link whatevr your test branch from your repo is
+
+We also need to create an app for staging, so under staging app, select `Create new app` and link your main branch from your repo
+
+Now once your pipeline has built the apps, select `Open app` to open the app
+
+With the staging app, if you would like to move the app to production, click the two up and down arrows and select `Move to production`
+
+And now your application is setup and in production mode!
 
 
 ## CI/CD ##
 
-TBD
+For continuous development, we set up Heroku to automatically deploy our apps when their respective github branches are updated.
+
+  `Review app: test branch`
+
+  `Production app: main branch`
+
+For continuous integration, we set up a Github action to run our specs, security checks, linter, etc. after every push or pull-request. This allows us to automatically ensure that our code is working as intended.
 
 ## Support ##
 
