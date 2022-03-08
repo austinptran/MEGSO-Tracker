@@ -2,28 +2,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First Name:</strong>
-  <%= @alumni.first_name %>
-</p>
-
-<p>
-  <strong>Last Name:</strong>
-  <%= @alumni.last_name %>
-</p>
-
-<p>
   <strong>LinkedIn URL:</strong>
   <%= @alumni.LinkedIn %>
 </p>
 
 <p>
-  <strong>Occupation:</strong>
-  <%= @alumni.alumni_occupation %>
+  <strong>Graduation Year:</strong>
+  <%= @alumni.alumni_grad_year %>
 </p>
 
 <p>
-  <strong>Graduation Year:</strong>
-  <%= @alumni.alumni_grad_year %>
+	<strong>Highest Position:</strong>
+	<%= @alumni.highest_position %>
 </p>
 
 <%= link_to 'Back to Alumni List', alumnis_path %> |

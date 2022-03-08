@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Creating a event', type: :feature do
-  scenario 'valid inputs' do
+  scenario 'event valid inputs' do
     visit new_event_path
     fill_in 'Event Name', with: 'Event test'
     fill_in 'Amount of Points', with: 10
@@ -15,7 +15,6 @@ RSpec.describe 'Creating a event', type: :feature do
     select '19', :from => 'event_event_end_4i'
     select '05', :from => 'event_event_end_5i'
     fill_in 'Event Verification Code', with: 'CodeCode'
-    fill_in 'Attendee List ID', with: 123
 
     click_on 'Create Event'
     visit events_path
@@ -26,6 +25,5 @@ RSpec.describe 'Creating a event', type: :feature do
     expect(page).to have_content('2000-01-01 19:03:00')
     expect(page).to have_content('2000-01-01 19:05:00')
     expect(page).to have_content('CodeCode')
-    expect(page).to have_content('123')
   end
 end

@@ -11,5 +11,10 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe OfficersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#check_officer_position" do
+		it "returns correct officer position" do
+			assign(:position, "President")
+			helper.check_officer_position.should eql("President")
+		end
+	end
 end

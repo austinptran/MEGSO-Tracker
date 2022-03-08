@@ -11,5 +11,16 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe OccupationsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#check_occupation_role" do
+		it "returns correct occupation role" do
+			assign(:occupation_role, "Software Developer")
+			helper.check_occupation_role.should eql("Software Developer")
+		end
+	end
+	describe "#check_occupation_company" do
+		it "returns correct occupation company" do
+			assign(:occupation_company, "Boeing")
+			helper.check_occupation_company.should eql("Boeing")
+		end
+	end
 end
