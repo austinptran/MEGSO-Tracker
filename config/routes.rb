@@ -1,22 +1,32 @@
 Rails.application.routes.draw do
-  resources :points
+  resources :officers
+  resources :rewards
+  get 'users/new'
+  get 'sessions/new'
   resources :events do
     get "list", to: "events#list"
+    resources :attendee_lists
   end
-  resources :occupations
+
+  post 'events/register/:id', to: 'events#register', as:'register_event'
+
   resources :alumnis do
+    resources :occupations
     member do
       get "delete", to: "alumnis#delete"
     end
   end
-  resources :admins
-  resources :students
   resources :users
-  resources :attendee_lists
-  resources :student_events
+
+  get 'signup', to: 'users#new'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+  resources :events
 
   get 'events/delete/:id', to:'events#delete', as:'delete_event'
   get 'student_events/signup/:id', to:'student_events#signup', as:'signup_event'
-  root 'users#index'
+  root 'sessions#new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

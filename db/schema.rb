@@ -10,32 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_11_201543) do
+ActiveRecord::Schema.define(version: 2022_03_07_200446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "admin_name"
-    t.string "admin_pass"
-    t.string "admin_position"
-    t.string "admin_key"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "alumnis", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
     t.string "LinkedIn"
-    t.string "alumni_occupation"
     t.integer "alumni_grad_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "highest_position"
   end
 
   create_table "attendee_lists", force: :cascade do |t|
-    t.string "compound_key"
     t.string "attendee_list_id"
     t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
@@ -63,30 +51,32 @@ ActiveRecord::Schema.define(version: 2022_02_11_201543) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "points", force: :cascade do |t|
-    t.integer "point_count"
-    t.string "reward"
+  create_table "officers", force: :cascade do |t|
+    t.string "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.integer "UIN"
-    t.integer "points"
+  create_table "rewards", force: :cascade do |t|
+    t.string "reward_name"
+    t.integer "reward_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
     t.integer "UID"
-    t.string "user_name"
-    t.integer "user_age"
-    t.string "user_address"
-    t.string "user_email"
-    t.string "user_phone"
-    t.string "user_gender"
+    t.boolean "is_admin"
+    t.boolean "is_officer"
+    t.boolean "position"
+    t.integer "points"
+    t.integer "rewards_earned"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end

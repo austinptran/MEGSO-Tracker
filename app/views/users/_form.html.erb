@@ -1,52 +1,72 @@
 <%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :first_name, "First Name" %>
+      <%= form.text_field :first_name %>
+    </div>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label :last_name, "Last Name" %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email, "Email" %>
+      <%= form.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :UID, "UID" %>
+      <%= form.number_field :UID %>
+    </div>
+
+    <div class="field">
+      <%= form.label :points, "Points" %>
+      <%= form.number_field :points %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rewards_earned, "Rewards Earned" %>
+      <%= form.number_field :rewards_earned %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, "Password" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation, "Password Confirmation" %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+    #<% if is_officer? @user %>
+    #  <div class="field">
+    #    <%= form.label :position, "Position" %>
+    #    <%= form.text_field :position %>
+    #  </div>
+    #<% end %>
+
+    #<% if is_admin? @user %>
+    #  <div class="field">
+    #  <%= form.label :is_officer, "Is Officer?" %>
+    #  <%= form.check_box :is_officer %>
+    #  </div>
+    #<% end %>
+  
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :UID, "UID" %>
-    <%= form.text_field :UID %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_name, "Name" %>
-    <%= form.text_field :user_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_age, "Age" %>
-    <%= form.text_field :user_age %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_address, "Address" %>
-    <%= form.text_field :user_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_email, "Email" %>
-    <%= form.text_field :user_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_phone, "Phone Number" %>
-    <%= form.text_field :user_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_gender, "Gender" %>
-    <%= form.text_field :user_gender %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  
