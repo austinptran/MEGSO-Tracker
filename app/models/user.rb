@@ -5,15 +5,21 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token
 
-  before_save { self.email = email.downcase }
-  validates :first_name, length: { maximum: 50 }
-  validates :last_name, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
-  validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, length: { minimum: 6 }
+
+    attr_accessor :remember_token
+    before_save { self.email = email.downcase }
+    validates :first_name, presence: true, length: { minimum: 2, maximum: 50 }
+    #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :last_name, presence: true, length: {minimum: 2, maximum: 50 }
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :email, presence: true, length: { maximum: 255 },
+                        format: { with: VALID_EMAIL_REGEX },
+                        uniqueness: { case_sensitive: false }
+    has_secure_password
+    validates :UID, presence: true, length:{minimum: 9, maximum: 9}
+    validates :password, presence: true, length: { minimum: 6 }
+    validates :password_confirmation, presence: true
+
 
   # Returns the hash digest of the given string.
   def self.digest(string)
