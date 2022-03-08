@@ -13,3 +13,139 @@
  *= require_tree .
  *= require_self
  */
+
+/* Generic Styling */
+
+:root {
+    --background: rgba(0, 0, 0, 0.858);
+}
+
+/* Navbar Styling */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color:var(--background);
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo{
+    color:rgb(227, 227, 227);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 22px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.nav-links li{
+    list-style: none;
+}
+.nav-links a{
+    color: rgb(227, 227, 227);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a:focus {
+    color: rgb(68, 68, 68);
+}
+
+.mobile-burger {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-burger div {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(227, 227, 227);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    color: rgb(227, 227, 227);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/*  
+    make sizing mobile friendly: 
+    -adjust nav links sizing based on screen size
+    -adjust where nav links are displayed 
+*/
+@media screen and (max-width: 1024px) {
+    .nav-links{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: var(--background);
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        width: 45%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .mobile-burger {
+        display: block;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from {
+        opacity:0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
