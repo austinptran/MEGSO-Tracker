@@ -3,7 +3,7 @@
 ## Introduction ##
 
 Our team has been tasked with creating a web application for the Mechanical Engineering Graduate Student Organization (MEGSO) at 
-Texas A&M University. This application will allow MEGSO student members to sign up for events, as well as enable the organization officers keep track of memebers' attendance and award points based on the events atteneded. In addition, our web app functions as an alumni tracker, where MEGSO officers can see detailed information about the past MEGSO memebers that held office in the organization. Alumni will be tracked mainly through basic information such as graduation year, current company, current job position held, and occupation. 
+Texas A&M University. This application will allow MEGSO student members to sign up for events, as well as enable the organization officers keep track of members' attendance and award points based on the events atteneded. In addition, our web app functions as an alumni tracker, where MEGSO officers can see detailed information about the past MEGSO memebers that held office in the organization. Alumni will be tracked mainly through basic information such as graduation year, current company, current job position held, and occupation. 
 
 
 ## Requirements ##
@@ -64,13 +64,13 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 Setup a Heroku account: https://signup.heroku.com/
 
-From the heroku dashboard Click the `New` button in the top right of your app list and select `Create New Pipline`
+From the heroku dashboard, click the `New` button in the top right of your app list and select `Create New Pipline`
 
-Name the pipeline, and connect the respective git repo to the pipline. Be sure to click the `Create Pipeline` button.
+Name the pipeline, and connect the respective git repo to the pipline. Be sure to click the `Create Pipeline` button
 
 Our application does not need any extra options, so select `Enable Review Apps` right away
 
-Click `New app` under review apps, and link whatevr your test branch from your repo is
+Click `New app` under review apps, and link whatever your test branch from your repo is
 
 We also need to create an app for staging, so under staging app, select `Create new app` and link your main branch from your repo
 
@@ -85,11 +85,11 @@ And now your application is setup and in production mode!
 
 For continuous development, we set up Heroku to automatically deploy our apps when their respective github branches are updated.
 
-  `Review app: test branch`
+  `Review app: revised_app_test branch`
 
   `Production app: main branch`
 
-For continuous integration, we set up a Github action to run our specs, security checks, linter, etc. after every push or pull-request. This allows us to automatically ensure that our code is working as intended.
+For continuous integration, we set up a Github action via workflows to run our specs, security checks, linter, etc. after every push or pull-request. This allows us to automatically ensure that our code is working as intended.
 
 ## Support ##
 
