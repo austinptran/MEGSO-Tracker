@@ -89,6 +89,7 @@ class EventsController < ApplicationController
     else 
       current_user.update_attribute(:points, current_user.points + @event.event_point)
       @new_event = AttendeeList.create(attendee_list_id: @event_id, UID: @member.UID)
+			redirect_to :events, notice: "You have successfully registered!"
     end
   end
 
