@@ -1,22 +1,21 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "alumnis/show", type: :view do
-  before(:each) do
+RSpec.describe('alumnis/show', type: :view) do
+  before do
     @alumni = assign(:alumni, Alumni.create!(
-      first_name: "First Name",
-      last_name: "Last Name",
-      LinkedIn: "Linked In",
-      alumni_occupation: "Alumni Occupation",
-      alumni_grad_year: 2
-    ))
+                                LinkedIn: 'Linked In',
+                                alumni_grad_year: 2,
+                                highest_position: 'Highest Position'
+                              )
+    )
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
-    expect(rendered).to match(/First Name/)
-    expect(rendered).to match(/Last Name/)
-    expect(rendered).to match(/Linked In/)
-    expect(rendered).to match(/Alumni Occupation/)
-    expect(rendered).to match(/2/)
+    expect(rendered).to(match(/Linked In/))
+    expect(rendered).to(match(/2/))
+    expect(rendered).to(match(/Highest Position/))
   end
 end
