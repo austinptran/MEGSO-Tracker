@@ -11,5 +11,17 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+	describe "#check_first_name" do
+		it "returns correct first name" do
+			assign(:first_name, "Henry")
+			helper.check_first_name.should eql("Henry")
+		end
+	end
+
+	describe "#check_user_email" do
+		it "returns correct email" do
+			assign(:email, "brightkid12@gmail.com")
+			helper.check_user_email.should eql("brightkid12@gmail.com")
+		end
+	end
 end

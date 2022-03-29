@@ -41,6 +41,11 @@ AllCops:
         - "**/spec_helper.rb"
         - "node_modules/**/*"
         - "bin/*"
+        - "**/spec/helpers/*"
+        - "**/spec/models/*"
+        - "**/spec/requests/*"
+        - "**/spec/routing/*"
+        - "**/spec/views/*"
 
 ###########################################################
 ###################### RuboCop ############################

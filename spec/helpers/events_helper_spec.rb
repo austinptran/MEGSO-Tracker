@@ -11,5 +11,16 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EventsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#check_event_name" do
+		it "returns correct event name" do
+			assign(:event_name, "Fight Night")
+			helper.check_event_name.should eql("Fight Night")
+		end
+	end
+	describe "#check_event_date" do
+		it "returns correct event date" do
+			assign(:event_date, "2022-03-21")
+			helper.check_event_date.should eql("2022-03-21")
+		end
+	end
 end
