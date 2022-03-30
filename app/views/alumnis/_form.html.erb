@@ -12,28 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name, "First Name" %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name, "Last Name" %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
     <%= form.label :LinkedIn, "LinkedIn URL" %>
     <%= form.url_field :LinkedIn %>
   </div>
 
   <div class="field">
-    <%= form.label :alumni_occupation, "Occupation" %>
-    <%= form.text_field :alumni_occupation %>
+    <%= form.label :alumni_grad_year, "Graduation Year" %>
+    <%= form.number_field :alumni_grad_year %>
   </div>
 
   <div class="field">
-    <%= form.label :alumni_grad_year, "Graduation Year" %>
-    <%= form.number_field :alumni_grad_year %>
+    <%= form.label :highest_position, "Highest Position" %>
+    <%= form.text_field :highest_position %>
   </div>
 
   <div class="actions">

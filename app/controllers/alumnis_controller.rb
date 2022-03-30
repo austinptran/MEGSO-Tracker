@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class AlumnisController < ApplicationController
-  before_action :authorize_user
-  before_action :set_alumni, only: %i[ show edit update destroy ]
+  before_action :set_alumni, only: %i[show edit update destroy]
 
   # GET /alumnis or /alumnis.json
   def index
@@ -8,8 +9,7 @@ class AlumnisController < ApplicationController
   end
 
   # GET /alumnis/1 or /alumnis/1.json
-  def show
-  end
+  def show; end
 
   # GET /alumnis/new
   def new
@@ -17,8 +17,7 @@ class AlumnisController < ApplicationController
   end
 
   # GET /alumnis/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /alumnis or /alumnis.json
   def create
@@ -26,11 +25,11 @@ class AlumnisController < ApplicationController
 
     respond_to do |format|
       if @alumni.save
-        format.html { redirect_to alumnis_url, notice: "Alumni was successfully created." }
-        format.json { render :show, status: :created, location: @alumni }
+        format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully created.') }
+        format.json { render(:show, status: :created, location: @alumni) }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @alumni.errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
+        format.json { render(json: @alumni.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -39,11 +38,11 @@ class AlumnisController < ApplicationController
   def update
     respond_to do |format|
       if @alumni.update(alumni_params)
-        format.html { redirect_to alumnis_url, notice: "Alumni was successfully updated." }
-        format.json { render :show, status: :ok, location: @alumni }
+        format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully updated.') }
+        format.json { render(:show, status: :ok, location: @alumni) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @alumni.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @alumni.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -54,22 +53,23 @@ class AlumnisController < ApplicationController
   end
 
   def destroy
-    @alumni.destroy
+    @alumni.destroy!
 
     respond_to do |format|
-      format.html { redirect_to alumnis_url, notice: "Alumni was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully destroyed.') }
+      format.json { head(:no_content) }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_alumni
-      @alumni = Alumni.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def alumni_params
-      params.require(:alumni).permit(:first_name, :last_name, :LinkedIn, :alumni_occupation, :alumni_grad_year)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_alumni
+    @alumni = Alumni.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def alumni_params
+    params.require(:alumni).permit(:LinkedIn, :alumni_grad_year, :highest_position)
+  end
 end

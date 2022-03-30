@@ -51,19 +51,19 @@
       <%= form.password_field :password_confirmation %>
     </div>
 
-    <% if is_officer? @user %>
-      <div class="field">
-        <%= form.label :position, "Position" %>
-        <%= form.text_field :position %>
-      </div>
-    <% end %>
+    #<% if is_officer? @user %>
+    #  <div class="field">
+    #    <%= form.label :position, "Position" %>
+    #    <%= form.text_field :position %>
+    #  </div>
+    #<% end %>
 
-    <% if is_admin? @user %>
-      <div class="field">
-      <%= form.label :is_officer, "Is Officer?" %>
-      <%= form.check_box :is_officer %>
-      </div>
-    <% end %>
+    #<% if is_admin? @user %>
+    #  <div class="field">
+    #  <%= form.label :is_officer, "Is Officer?" %>
+    #  <%= form.check_box :is_officer %>
+    #  </div>
+    #<% end %>
   
     <div class="actions">
       <%= form.submit %>
