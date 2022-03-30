@@ -1,4 +1,5 @@
 class OccupationsController < ApplicationController
+  before_action :authorize_user
   before_action :set_occupation, only: %i[ show edit update destroy ]
 
   # GET /occupations or /occupations.json

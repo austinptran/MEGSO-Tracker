@@ -1,4 +1,5 @@
 class AlumnisController < ApplicationController
+  before_action :authorize_user
   before_action :set_alumni, only: %i[ show edit update destroy ]
 
   # GET /alumnis or /alumnis.json
