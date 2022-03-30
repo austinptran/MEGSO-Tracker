@@ -1,0 +1,17 @@
+<h1>Delete Reward</h1>
+
+
+<p>Are you sure you want to delete this reward?</p>
+
+<p> <b>Reward Name:</b> <%= @reward.reward_name %> </p>
+<p> <b>Points Required:</b> <%= @reward.reward_points %> </p>
+
+
+<table>
+      <thead>
+        <tr>
+          <th><%= button_to 'Yes', @reward, method: :delete%></td>
+          <th><%= button_to 'Back to Reward List', rewards_path, :method => :get %></td>
+        </tr>
+      </thead>
+</table>
