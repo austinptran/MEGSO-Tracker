@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class OfficersController < ApplicationController
+  before_action :authorize_user
   before_action :set_officer, only: %i[show edit update destroy]
 
   # GET /officers or /officers.json
