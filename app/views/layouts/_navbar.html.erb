@@ -6,6 +6,7 @@
             <li><a href="<%=events_path%>">Events</a></li>
             <li><a href="<%=alumnis_path%>">Alumni</a></li>
             <li><a href="<%=rewards_path%>">Rewards</a></li>
+            <li><%= link_to 'Logout', destroy_session_path(session) %></li>
         </ul>
         <div class="mobile-burger">
             <div class="line1"></div>

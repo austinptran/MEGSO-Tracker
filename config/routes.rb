@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :events
 
   get 'events/delete/:id', to: 'events#delete', as: 'delete_event'
+  get 'sessions/destroy/:id', to: 'sessions#destroy', as: 'destroy_session'
   get 'student_events/signup/:id', to: 'student_events#signup', as: 'signup_event'
   root 'sessions#new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
