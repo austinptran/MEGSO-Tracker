@@ -45,5 +45,6 @@ class User < ApplicationRecord
   def set_defaults
     self.points ||= 0
     self.rewards_earned ||= 0
+    self.is_admin ||= false
   end
 end
