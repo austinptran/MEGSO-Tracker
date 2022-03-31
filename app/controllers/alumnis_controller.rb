@@ -56,7 +56,7 @@ class AlumnisController < ApplicationController
     @alumni.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully destroyed.') }
+      format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully deleted.') }
       format.json { head(:no_content) }
     end
   end
