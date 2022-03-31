@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy makeAdmin unmakeAdmin]
   def show
     @user = User.find(params[:id])
   end
@@ -39,6 +39,17 @@ class UsersController < ApplicationController
         format.json { render(json: @user.errors, status: :unprocessable_entity) }
       end
     end
+  end
+
+  def makeAdmin
+    @makeAdmin = User.find(params[:id])
+    @makeAdmin.update_attribute(:is_admin, true)
+    redirect_to(users_url)
+  end
+  def unmakeAdmin
+    @unmakeAdmin = User.find(params[:id])
+    @unmakeAdmin.update_attribute(:is_admin, false)
+    redirect_to(users_url)
   end
 
   # DELETE /points/1 or /points/1.json

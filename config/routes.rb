@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users
+  
+  get 'users/make_admin/:id', to: 'users#makeAdmin', as: 'make_admin' 
+  get 'users/unmake_admin/:id', to: 'users#unmakeAdmin', as: 'unmake_admin' 
 
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
