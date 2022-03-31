@@ -65,8 +65,12 @@ class RewardsController < ApplicationController
   def accept
     set_reward
     @member = current_user
-    current_user.update_attribute(:points, current_user.points - @reward.reward_points)
-    redirect_to(:rewards, notice: 'You have successfully accepted reward!')
+    if current_user.points < @reward.reward_points
+      redirect_to(:rewards, notice: 'You do not have enough points for that reward.')
+    else
+      current_user.update_attribute(:points, current_user.points - @reward.reward_points)
+      redirect_to(:rewards, notice: 'You have successfully accepted reward!')
+    end
   end
 
   private
