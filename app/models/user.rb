@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  #validates :first_name, :last_name, :email, :UID, :password, :password_confirmation, presence: true
   after_initialize :set_defaults, unless: :persisted?
 
   attr_accessor :remember_token
@@ -16,7 +17,7 @@ class User < ApplicationRecord
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :UID, presence: true, length:{minimum: 9, maximum: 9}
+    validates :UID, presence: true, length:{minimum: 9, maximum: 9}, numericality: { only_integer: true }
     validates :password, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: true
 
@@ -45,5 +46,10 @@ class User < ApplicationRecord
   def set_defaults
     self.points ||= 0
     self.rewards_earned ||= 0
+    if self.email == 'shanebrown013@tamu.edu' || self.email == 'ashoksteelers12@tamu.edu' || self.email == 'mojoatm2023@tamu.edu' || self.email == 'plantand000@tamu.edu' || self.email == 'austinptran.2000@tamu.edu' || self.email == 'justiceu@tamu.edu' || self.email == 'cfauver@tamu.edu'
+      self.is_admin = true
+    else
+      self.is_admin = false
+    end
   end
 end

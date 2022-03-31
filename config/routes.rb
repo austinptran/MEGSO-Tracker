@@ -2,7 +2,12 @@
 
 Rails.application.routes.draw do
   resources :officers
-  resources :rewards
+  resources :rewards do 
+    member do 
+      get 'delete', to: 'rewards#delete'
+      get 'accept', to: 'rewards#accept'
+    end
+  end
   get 'users/new'
   get 'sessions/new'
   resources :events do
@@ -19,6 +24,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users
+  
+  get 'users/make_admin/:id', to: 'users#makeAdmin', as: 'make_admin' 
+  get 'users/unmake_admin/:id', to: 'users#unmakeAdmin', as: 'unmake_admin' 
 
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'

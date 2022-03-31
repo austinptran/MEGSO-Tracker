@@ -18,9 +18,9 @@
         <td><%= alumni.LinkedIn %></td>
         <td><%= alumni.alumni_grad_year %></td>
         <td><%= alumni.highest_position %></td>
-        <td><%= link_to 'Show', alumni %></td>
-        <td><%= link_to 'Edit', edit_alumni_path(alumni) %></td>
-        <td><%= link_to 'Delete', delete_alumni_path(alumni) %></td>
+        <td><%= button_to 'Show', alumni, :method => :get %></td>
+        <td><%= button_to 'Edit', edit_alumni_path(alumni), :method => :get %></td>
+        <td><%= button_to 'Delete', delete_alumni_path(alumni), :method => :get %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'Add Alumni', new_alumni_path %>
+<%= button_to 'Add Alumni', new_alumni_path, :method => :get %>

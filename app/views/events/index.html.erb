@@ -30,10 +30,10 @@
         <td><%= event.event_end %></td>
         <td><%= event.event_verification %></td>
         <td><%= event.event_attendee_list_id %></td>
-        <td><%= link_to 'Show', event %></td>
+        <td><%= button_to 'Show', event, :method => :get %></td>
         <td><%= button_to 'Register', register_event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', delete_event_path(event) %></td>
+        <td><%= button_to 'Edit', edit_event_path(event), :method => :get %></td>
+        <td><%= button_to 'Delete', delete_event_path(event), :method => :get %></td>
       </tr>
     <% end %>
   </tbody>
@@ -41,4 +41,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= button_to 'New Event', new_event_path, :method => :get %>
