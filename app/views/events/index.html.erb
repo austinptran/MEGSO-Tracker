@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<p id="codeMatch"></p>
+
 <h1>Events</h1>
 
 <p>Current User is <%= current_user.first_name %></p>
@@ -31,7 +33,7 @@
         <td><%= event.event_verification %></td>
         <td><%= event.event_attendee_list_id %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= button_to 'Register', register_event_path(event) %></td>
+        <td><%= button_tag 'Register', onclick: "myFunction('#{event.event_verification}, #{event.id}')" %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', delete_event_path(event) %></td>
       </tr>
@@ -40,5 +42,22 @@
 </table>
 
 <br>
+
+<script>
+function myFunction(eventVerificationCode, eventID) {
+  console.log(eventVerificationCode);
+  let text;
+  let userCode = prompt("Please enter the verification code");
+  console.log(userCode);
+  if (userCode == eventVerificationCode) {
+    text = "Successfully Registered for Event!";
+  } else {
+    text = "Wrong Code!";
+  }
+  document.getElementById("codeMatch").innerHTML = text;
+}
+</script>
+
+
 
 <%= link_to 'New Event', new_event_path %>
