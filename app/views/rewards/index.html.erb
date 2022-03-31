@@ -46,6 +46,7 @@
 			<tr>
 			  <td><%= reward.reward_name %></td>
 				<td><%= reward.reward_points %></td>
+        <td><%= button_to 'Accept', accept_reward_path(reward), :method => :get %></td>
 			</tr>
 		<% end %>
 	</tbody>

@@ -57,9 +57,16 @@ class RewardsController < ApplicationController
     @reward.destroy
 
     respond_to do |format|
-      format.html { redirect_to rewards_url, notice: 'Reward was successfully destroyed.' }
+      format.html { redirect_to rewards_url, notice: 'Reward was successfully deleted.' }
       format.json { head(:no_content) }
     end
+  end
+
+  def accept
+    set_reward
+    @member = current_user
+    current_user.update_attribute(:points, current_user.points - @reward.reward_points)
+    redirect_to(:rewards, notice: 'You have successfully accepted reward!')
   end
 
   private
