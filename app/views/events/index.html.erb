@@ -33,7 +33,7 @@
         <td><%= event.event_verification %></td>
         <td><%= event.event_attendee_list_id %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= button_tag 'Register', onclick: "myFunction('#{event.event_verification}, #{event.id}')" %></td>
+        <td><%= button_tag 'Register', onclick: "myFunction('#{event.event_verification}')" %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', delete_event_path(event) %></td>
       </tr>
@@ -44,7 +44,7 @@
 <br>
 
 <script>
-function myFunction(eventVerificationCode, eventID) {
+function myFunction(eventVerificationCode) {
   console.log(eventVerificationCode);
   let text;
   let userCode = prompt("Please enter the verification code");
