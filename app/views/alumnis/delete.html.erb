@@ -16,5 +16,11 @@
 	<%= @alumni.highest_position %>
 </p>
 
-<%= link_to 'Back to Alumni List', alumnis_path %> |
-<%= link_to 'Delete', @alumni, method: :delete %>
+<table>
+      <thead>
+        <tr>
+          <th><%= button_to 'Yes', @alumni, method: :delete %></td>
+          <th><%= button_to 'Back to Alumni List', alumnis_path, :method => :get %></td>
+        </tr>
+      </thead>
+</table>

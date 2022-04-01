@@ -2,7 +2,12 @@
 
 Rails.application.routes.draw do
   resources :officers
-  resources :rewards
+  resources :rewards do 
+    member do 
+      get 'delete', to: 'rewards#delete'
+      get 'accept', to: 'rewards#accept'
+    end
+  end
   get 'users/new'
   get 'sessions/new'
   resources :events do
