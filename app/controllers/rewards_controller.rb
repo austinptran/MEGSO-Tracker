@@ -62,6 +62,10 @@ class RewardsController < ApplicationController
     end
   end
 
+  def redeem
+    @reward = Reward.find(params[:id])
+  end
+
   def accept
     set_reward
     @member = current_user

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :rewards do 
     member do 
       get 'delete', to: 'rewards#delete'
+      get 'redeem', to: 'rewards#redeem'
       get 'accept', to: 'rewards#accept'
+      get 'confirm', to: 'rewards#confirm'
     end
   end
   get 'users/new'

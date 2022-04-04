@@ -2,7 +2,7 @@
 
 <p>Your Points: <%= current_user.points %></p>
 
-<h1>Rewards (Admin)</h1>
+<h1>Rewards</h1>
 
 <table>
   <thead>
@@ -19,7 +19,7 @@
         <td><%= reward.reward_name %></td>
         <td><%= reward.reward_points %></td>
         <td><%= button_to 'Show', reward, :method => :get %></td>
-        <td><%= button_to 'Accept', accept_reward_path(reward), :method => :get %></td>
+        <td><%= button_to 'Redeem', redeem_reward_path(reward), :method => :get %></td>
         <td><%= button_to 'Edit', edit_reward_path(reward), :method => :get %></td>
         <td><%= button_to 'Delete', delete_reward_path(reward), :method => :get %></td>
       </tr>
@@ -31,6 +31,7 @@
 
 <%= button_to 'New Reward', new_reward_path, :method => :get %>
 
+<!--
 <h1>Rewards (Students)</h1>
 
 <table>
@@ -52,3 +53,4 @@
 		<% end %>
 	</tbody>
 <table>
+-->
