@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :rewards_approval_lists
   resources :officers
   resources :rewards do 
     member do 
