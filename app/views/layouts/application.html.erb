@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <% if logged_in? == true%>
+    <% if logged_in? == true and not current_page?(root_path) and not current_page?(signup_path)%>
       <%= render '/layouts/navbar' %>
     <% end %>
     <%= yield %>
