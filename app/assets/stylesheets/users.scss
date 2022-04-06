@@ -1,3 +1,25 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.floating-form {
+    max-width: 100rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fff;
+    -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
+    -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.floating-form .form {
+    font-size: 16px;
+    font-size: 1rem;
+    width: 100%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+}
