@@ -51,7 +51,7 @@ class RewardsApprovalListsController < ApplicationController
     set_rewards_approval_list
     @member = User.where(UID: @rewards_approval_list.UID).first
     @reward = Reward.where(reward_name: @rewards_approval_list.reward_name).first
-    current_user.update_attribute(:points, @member.points + @reward.reward_points)
+    @member.update_attribute(:points, @member.points + @reward.reward_points)
     @rewards_approval_list.destroy
     redirect_to(:rewards, notice: 'You have successfully given points back to the user.')
   end
