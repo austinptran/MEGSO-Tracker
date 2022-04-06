@@ -23,3 +23,38 @@
     padding-right: 0.625rem;
     padding-left: 0.625rem;
 }
+
+h1 {
+    font-family: "Oswald Light", "Helvetica", Arial;
+    font-style: normal;
+    font-weight: normal;
+    color: #500000;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+}
+.col-6 {
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 100rem;
+    margin-right: auto;
+    margin-left: auto;
+    background: #fff;
+    -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
+    -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+}
+
+.col-6 input {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.col-6 label {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+.col-3 h1 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
