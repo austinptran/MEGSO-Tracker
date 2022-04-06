@@ -6,6 +6,7 @@ class RewardsController < ApplicationController
   # GET /rewards or /rewards.json
   def index
     @rewards = Reward.all.sort_by { |reward| -reward.reward_points }
+    @pending_rewards = RewardsApprovalList.all
   end
 
   # GET /rewards/1 or /rewards/1.json
@@ -62,13 +63,18 @@ class RewardsController < ApplicationController
     end
   end
 
+  def redeem
+    @reward = Reward.find(params[:id])
+  end
+
   def accept
     set_reward
     @member = current_user
     if current_user.points < @reward.reward_points
       redirect_to(:rewards, notice: 'You do not have enough points for that reward.')
     else
-      current_user.update_attribute(:points, current_user.points - @reward.reward_points)
+      current_user.update_attribute(:points, @member.points - @reward.reward_points)
+      @new_reward = RewardsApprovalList.create!(reward_name: @reward.reward_name, UID: @member.UID)
       redirect_to(:rewards, notice: 'You have successfully accepted reward!')
     end
   end
