@@ -47,12 +47,31 @@ class RewardsApprovalListsController < ApplicationController
     end
   end
 
+  def delete
+    set_rewards_approval_list
+    @member = current_user
+    @reward = Reward.where(reward_name: @rewards_approval_list.reward_name).first
+    current_user.update_attribute(:points, @member.points + @reward.reward_points)
+    @rewards_approval_list.destroy
+    redirect_to(:rewards, notice: 'You have successfully given points back to the user.')
+  end
+
   # DELETE /rewards_approval_lists/1 or /rewards_approval_lists/1.json
   def destroy
     @rewards_approval_list.destroy
 
     respond_to do |format|
       format.html { redirect_to rewards_approval_lists_url, notice: "Rewards approval list was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+  def confirm
+    set_rewards_approval_list
+    @rewards_approval_list.destroy
+
+    respond_to do |format|
+      format.html { redirect_to rewards_url, notice: "Reward was successfully confirmed." }
       format.json { head :no_content }
     end
   end

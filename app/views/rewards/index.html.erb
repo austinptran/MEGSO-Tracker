@@ -38,10 +38,12 @@
 <table>
   <thead>
     <tr>
+      <th>Reward</th>
+      <th>Date Redeemed</th>
+      <th>Email</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>UIN</th>
-      <th>Reward</th>
     </tr>
   </thead>
 
@@ -49,7 +51,13 @@
     <% @pending_rewards.each do |pending_reward| %>
       <tr>
         <td><%= pending_reward.reward_name %></td>
+        <td><%= pending_reward.created_at %></td>
+        <td><%= get_current_user_email pending_reward.UID %></td>
+        <td><%= get_current_user_first_name pending_reward.UID %></td>
+        <td><%= get_current_user_last_name pending_reward.UID %></td>  
         <td><%= pending_reward.UID %></td>
+        <td><%= button_to 'Confirm', confirm_reward_rewards_approval_list_path(:reward_id, pending_reward), :method => :get %></td>
+        <td><%= button_to 'Delete', delete_reward_rewards_approval_list_path(:reward_id, pending_reward), :method => :get %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :rewards_approval_lists
   resources :officers
   resources :rewards do 
     member do 
       get 'delete', to: 'rewards#delete'
       get 'redeem', to: 'rewards#redeem'
       get 'accept', to: 'rewards#accept'
-      get 'confirm', to: 'rewards#confirm'
+    end
+    resources :rewards_approval_lists do
+      member do
+        get 'confirm', to: 'rewards_approval_lists#confirm'
+        get 'delete', to: 'rewards_approval_lists#delete'
+      end
     end
   end
   get 'users/new'
