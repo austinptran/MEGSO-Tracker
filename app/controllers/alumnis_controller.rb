@@ -22,6 +22,10 @@ class AlumnisController < ApplicationController
   # POST /alumnis or /alumnis.json
   def create
     @alumni = Alumni.new(alumni_params)
+		profile = Linkedin::Profile.new("http://www.linkedin.com/in/jeffweiner08", {company_details: true})
+
+		@firstname = profile.first_name
+		@lastname = profile.last_name
 
     respond_to do |format|
       if @alumni.save

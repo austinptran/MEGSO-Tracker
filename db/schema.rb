@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2022_04_05_033257) do
     t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_attendee_lists_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -86,4 +88,5 @@ ActiveRecord::Schema.define(version: 2022_04_05_033257) do
     t.string "password_digest"
   end
 
+  add_foreign_key "attendee_lists", "events"
 end
