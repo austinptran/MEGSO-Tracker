@@ -8,7 +8,11 @@ RSpec.describe('events/edit', type: :view) do
                               event_name: 'MyString',
                               event_point: 1,
                               event_location: 'MyString',
-                              event_verification: 'MyString'
+                              event_date: '2020-01-01',
+                              event_start: '2000-01-01 23:09:00 UTC',
+                              event_end: '2000-01-01 23:09:00 UTC',
+                              event_verification: 'MyString',
+                              event_attendee_list_id: 'MyString'
                             )
     )
   end
@@ -23,7 +27,15 @@ RSpec.describe('events/edit', type: :view) do
 
       assert_select 'input[name=?]', 'event[event_location]'
 
+      assert_select 'input[name=?]', 'event[event_date]'
+
+      assert_select 'input[name=?]', 'event[event_start]'
+
+      assert_select 'input[name=?]', 'event[event_end]'
+
       assert_select 'input[name=?]', 'event[event_verification]'
+
+      assert_select 'input[name=?]', 'event[event_attendee_list_id]'
     end
   end
 end

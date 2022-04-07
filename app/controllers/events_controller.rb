@@ -11,13 +11,12 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     @events = Event.all
-    @attendees = AttendeeList.where(id: @event.id)
+    @attendees = AttendeeList.where(attendee_list_id: @event.event_attendee_list_id)
   end
 
   # GET /events/new
   def new
     @event = Event.new
-    @attendee_list = AttendeeList.new
   end
 
   # GET /events/1/edit
@@ -27,12 +26,12 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-		event_attendee_list_id = @event.id
+    @attendee_list_id = generate_token
 
-    @attendee_list = AttendeeList.new(id: event_attendee_list_id)
+    @event.event_attendee_list_id = @attendee_list_id
 
     respond_to do |format|
-      if @event.save && @attendee_list.save
+      if @event.save
         format.html { redirect_to(event_url(@event), notice: 'Event was successfully created.') }
         format.json { render(:show, status: :created, location: @event) }
       else
@@ -59,14 +58,16 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    set_event
+
+    @delete_attendees = AttendeeList.where(attendee_list_id: @event.event_attendee_list_id)
+
+    @delete_attendees.each(&:destroy)
+
     @event.destroy!
 
-		@attendee_list = AttendeeList.find(params[:id])
-
-		@attendee_list.destroy!
-
     respond_to do |format|
-      format.html { redirect_to(events_url, notice: 'Event was successfully destroyed.') }
+      format.html { redirect_to(events_url, notice: 'Event was successfully deleted.') }
       format.json { head(:no_content) }
     end
   end
@@ -75,8 +76,18 @@ class EventsController < ApplicationController
     @event = Event.all
   end
 
-  def signup
-    @event_id = @event.id
+  # Used to create an attendence list when the user hits a button
+  def register
+    set_event
+    @event_id = @event.event_attendee_list_id
+    @member = current_user
+    if AttendeeList.exists?(attendee_list_id: @event_id, UID: @member.UID)
+      redirect_to(:events, notice: 'You have aleady registered for that event.')
+    else
+      current_user.update_attribute(:points, current_user.points + @event.event_point)
+      @new_event = AttendeeList.create!(attendee_list_id: @event_id, UID: @member.UID)
+      redirect_to(:events, notice: 'You have successfully registered!')
+    end
   end
 
   private
@@ -91,7 +102,7 @@ class EventsController < ApplicationController
     loop do
       token = SecureRandom.hex(10)
 
-      break token unless Event.exists?(id: token)
+      break token unless Event.exists?(event_attendee_list_id: token)
     end
   end
 

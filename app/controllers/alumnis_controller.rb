@@ -56,7 +56,7 @@ class AlumnisController < ApplicationController
     @alumni.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully destroyed.') }
+      format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully deleted.') }
       format.json { head(:no_content) }
     end
   end
@@ -70,6 +70,6 @@ class AlumnisController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def alumni_params
-    params.require(:alumni).permit(:first_name, :last_name, :LinkedIn, :alumni_occupation, :alumni_grad_year)
+    params.require(:alumni).permit(:LinkedIn, :alumni_grad_year, :highest_position)
   end
 end

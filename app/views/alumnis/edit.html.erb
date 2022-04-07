@@ -2,5 +2,4 @@
 
 <%= render 'form', alumni: @alumni %>
 
-<%= link_to 'Show', @alumni %> |
-<%= link_to 'Back to Alumni List', alumnis_path %>
+<%= button_to 'Back to Alumni List', alumnis_path, :method => :get %>

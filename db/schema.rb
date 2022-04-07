@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_051646) do
+ActiveRecord::Schema.define(version: 2022_04_05_033257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "admins", force: :cascade do |t|
-    t.string "admin_key"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "alumnis", force: :cascade do |t|
     t.string "LinkedIn"
@@ -30,11 +24,10 @@ ActiveRecord::Schema.define(version: 2022_03_07_051646) do
   end
 
   create_table "attendee_lists", force: :cascade do |t|
+    t.string "attendee_list_id"
+    t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_attended"
-    t.bigint "event_id"
-    t.index ["event_id"], name: "index_attendee_lists_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -45,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_051646) do
     t.time "event_start"
     t.time "event_end"
     t.string "event_verification"
+    t.string "event_attendee_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,17 +64,26 @@ ActiveRecord::Schema.define(version: 2022_03_07_051646) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.integer "UIN"
-    t.integer "points"
+  create_table "rewards_approval_lists", force: :cascade do |t|
+    t.string "reward_name"
+    t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "position"
-    t.string "email"
-    t.integer "rewards_earned"
   end
 
-  add_foreign_key "attendee_lists", "events"
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "UID"
+    t.boolean "is_admin"
+    t.boolean "is_officer"
+    t.boolean "position"
+    t.integer "points"
+    t.integer "rewards_earned"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+  end
+
 end

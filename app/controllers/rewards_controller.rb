@@ -5,8 +5,8 @@ class RewardsController < ApplicationController
 
   # GET /rewards or /rewards.json
   def index
-    # @rewards = Reward.all
     @rewards = Reward.all.sort_by { |reward| -reward.reward_points }
+    @pending_rewards = RewardsApprovalList.all
   end
 
   # GET /rewards/1 or /rewards/1.json
@@ -48,13 +48,34 @@ class RewardsController < ApplicationController
     end
   end
 
+
+  def delete
+    @reward = Reward.find(params[:id])
+  end
+
   # DELETE /rewards/1 or /rewards/1.json
   def destroy
-    @reward.destroy!
+    @reward.destroy
 
     respond_to do |format|
-      format.html { redirect_to(rewards_url, notice: 'Reward was successfully destroyed.') }
+      format.html { redirect_to rewards_url, notice: 'Reward was successfully deleted.' }
       format.json { head(:no_content) }
+    end
+  end
+
+  def redeem
+    @reward = Reward.find(params[:id])
+  end
+
+  def accept
+    set_reward
+    @member = current_user
+    if current_user.points < @reward.reward_points
+      redirect_to(:rewards, notice: 'You do not have enough points for that reward.')
+    else
+      current_user.update_attribute(:points, @member.points - @reward.reward_points)
+      @new_reward = RewardsApprovalList.create!(reward_name: @reward.reward_name, UID: @member.UID)
+      redirect_to(:rewards, notice: 'You have successfully accepted reward!')
     end
   end
 

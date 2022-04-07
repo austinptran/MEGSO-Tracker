@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Event List (Admin)</h1>
+<h1>Events</h1>
+
+<p>Current User is <%= current_user.first_name %></p>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Points</th>
-      <th>Location</th>
-      <th>Date</th>
+      <th>Event Name</th>
+      <th>Amount of Points</th>
+      <th>Event Location</th>
+      <th>Event Date</th>
       <th>Start Time</th>
       <th>End Time</th>
-      <th>Code</th>
-      <th>Attendees</th>
+      <th>Event Verification Code</th>
+      <th>Attendee List ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,10 +29,11 @@
         <td><%= event.event_start %></td>
         <td><%= event.event_end %></td>
         <td><%= event.event_verification %></td>
-        <td><%= link_to 'View', event_attendee_lists_path(event) %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', delete_event_path(event) %></td>
+        <td><%= event.event_attendee_list_id %></td>
+        <td><%= button_to 'Show', event, :method => :get %></td>
+        <td><%= button_to 'Register', register_event_path(event) %></td>
+        <td><%= button_to 'Edit', edit_event_path(event), :method => :get %></td>
+        <td><%= button_to 'Delete', delete_event_path(event), :method => :get %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,34 +41,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
-
-<h1>Event List (Student)</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Amount of Points</th>
-      <th>Location</th>
-      <th>Date</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.event_name %></td>
-        <td><%= event.event_point %></td>
-        <td><%= event.event_location %></td>
-        <td><%= event.event_date %></td>
-        <td><%= event.event_start %></td>
-        <td><%= event.event_end %></td>
-        <td><%= link_to 'Sign Up', signup_event_path(event) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= button_to 'New Event', new_event_path, :method => :get %>

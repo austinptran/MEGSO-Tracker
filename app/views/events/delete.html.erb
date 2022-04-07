@@ -9,5 +9,11 @@
 <p> <b>Event End Date/Time:</b> <%= @event.event_end %> </p>
 
 
-<td><%= link_to 'Yes', @event, method: :delete%></td>|
-<%= link_to 'Back', events_path %>
+<table>
+      <thead>
+        <tr>
+          <th><%= button_to 'Yes', @event, method: :delete%></td>
+          <th><%= button_to 'Back to Event List', events_path, :method => :get %></td>
+        </tr>
+      </thead>
+</table>
