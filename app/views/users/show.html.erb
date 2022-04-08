@@ -30,5 +30,15 @@
   <%= @user.rewards_earned %>
 </p>
 
+<p>
+  <strong>Is an Admin:</strong>
+  <%= @user.is_admin %>
+</p>
+
+<p>
+  <strong>Is a Officer:</strong>
+  <%= @user.is_officer %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

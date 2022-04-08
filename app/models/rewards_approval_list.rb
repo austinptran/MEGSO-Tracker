@@ -1,0 +1,2 @@
+class RewardsApprovalList < ApplicationRecord
+end

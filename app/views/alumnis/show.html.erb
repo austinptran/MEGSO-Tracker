@@ -15,5 +15,12 @@
   <%= @alumni.highest_position %>
 </p>
 
-<%= link_to 'Edit', edit_alumni_path(@alumni) %> |
-<%= link_to 'Back to Alumni List', alumnis_path %>
+<table>
+      <thead>
+        <tr>
+          <th><%= button_to 'Edit', edit_alumni_path(@alumni), :method => :get %></td>
+          <th><%= button_to 'Back to Alumni List', alumnis_path, :method => :get %></td>
+        </tr>
+      </thead>
+</table>
+
