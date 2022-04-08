@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+    --background: #944547;
+}
+
 .floating-form {
     max-width: 100rem;
     margin-right: auto;
@@ -28,7 +32,7 @@ h1 {
     font-family: "Oswald Light", "Helvetica", Arial;
     font-style: normal;
     font-weight: normal;
-    color: #500000;
+    color: var(--background);
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
 }

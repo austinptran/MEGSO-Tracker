@@ -15,17 +15,11 @@
  */
 
 @import "bootstrap/scss/bootstrap";
-/* Generic Styling */
+/* Google Font- Open Sans*/
 
 :root {
-    --background: #500000;
+    --background: #944547;
 }
-
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, .section-title, h6, pre, form, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
-}
-
 /* Navbar Styling */
 
 nav {
@@ -169,7 +163,7 @@ nav a:focus {
     line-height: 1;
     text-align: center;
     cursor: pointer;
-    background-color: #500000;
+    background-color: var(--background);
     color: #fff;
     font-weight: bold;
     padding-left: 1.5rem;
@@ -180,9 +174,14 @@ nav a:focus {
     border-radius: 1.75rem;
 }
 
-a {
+.col-6 p a {
+    text-decoration:none;
+    transition: color 0.2s ease-out;
     color: #316B90;
 }
 
+.col-6 p a:hover {color:darken(#316B90, 20%);}
 
-
+body {
+    background-color: #ECF1EB;
+}
