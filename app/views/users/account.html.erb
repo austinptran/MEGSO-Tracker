@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>UID:</strong>
+  <strong>First UID:</strong>
   <%= @user.UID %>
 </p>
 
@@ -40,6 +40,4 @@
   <%= @user.is_officer %>
 </p>
 
-<br>
-
-<%= button_to 'Back to Users List', users_path, :method => :get %>
+<%= button_to 'Edit', edit_user_path(@user), :method => :get %>
