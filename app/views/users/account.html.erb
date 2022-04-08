@@ -30,10 +30,12 @@
   <%= @user.rewards_earned %>
 </p>
 
+<% if @user.is_admin == true %>
 <p>
   <strong>Is an Admin:</strong>
   <%= @user.is_admin %>
 </p>
+<% end %>
 
 <p>
   <strong>Is a Officer:</strong>
