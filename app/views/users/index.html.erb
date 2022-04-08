@@ -18,6 +18,34 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.UID %></td>
+        <td><%= button_to 'Show', user, :method => :get %></td>
+        <td><%= button_to 'Delete', delete_user_path(user), :method => :get %></td>
+        <td><%= button_to 'Remove Admin Permission!', unmake_admin_path(user), :method => :get %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Admins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>UID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
       <% if user.is_admin == true %>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
