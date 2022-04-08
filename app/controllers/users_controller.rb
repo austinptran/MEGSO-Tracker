@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def account
+    @user = User.find(params[:id])
+  end
+
   def index
     @users = User.all
   end
@@ -50,6 +54,10 @@ class UsersController < ApplicationController
     @unmakeAdmin = User.find(params[:id])
     @unmakeAdmin.update_attribute(:is_admin, false)
     redirect_to(users_url)
+  end
+
+  def delete
+    @user = User.find(params[:id])
   end
 
   # DELETE /points/1 or /points/1.json

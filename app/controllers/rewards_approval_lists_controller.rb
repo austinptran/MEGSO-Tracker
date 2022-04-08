@@ -68,6 +68,8 @@ class RewardsApprovalListsController < ApplicationController
 
   def confirm
     set_rewards_approval_list
+    @member = User.where(UID: @rewards_approval_list.UID).first
+    @member.update_attribute(:rewards_earned, @member.rewards_earned + 1)
     @rewards_approval_list.destroy
 
     respond_to do |format|
