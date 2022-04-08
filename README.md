@@ -44,12 +44,14 @@ Run the following code in Powershell if using windows or the terminal using Linu
   `cd MEGSO-Tracker`
 
   `docker run --rm -it --volume "$(pwd):/rails_app" -e DATABASE_USER=test_app -e DATABASE_PASSWORD=test_password -p 3000:3000 dmartinez05/ruby_rails_postgresql:latest`
+  
+  `if in windows replace '$(pwd)' with '${PWD}'`
 
   `cd rails_app`
 
 Install the app
 
-  `bundle install && rails webpacker:install && rails db:create && db:migrate`
+  `bundle install && rails webpacker:install && rails db:create && rails db:migrate`
 
 Run the app
   `rails server --binding:0.0.0.0`

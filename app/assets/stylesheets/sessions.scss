@@ -1,5 +1,9 @@
+:root {
+    --background: #944547;
+}
+
 header {
-    background: #500000;
+    background: var(--background);
     color: #fff;
     padding-top: 1.0rem;
     padding-bottom: 1.0rem;
@@ -14,7 +18,7 @@ h1 {
     font-family: "Oswald Light", "Helvetica", Arial;
     font-style: normal;
     font-weight: normal;
-    color: #500000;
+    color: var(--background);
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
 }
@@ -24,7 +28,7 @@ h1 {
     max-width: 100rem;
     margin-right: auto;
     margin-left: auto;
-    background: #fff;
+    background-color: #D8B6A4;
     -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
     -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
     box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
@@ -37,6 +41,14 @@ h1 {
 
 .col-3 h1 {
     text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.col-3 p {
+    text-align:center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 
