@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :officers
   resources :rewards do 
     member do 
       get 'delete', to: 'rewards#delete'
@@ -38,6 +37,9 @@ Rails.application.routes.draw do
       get 'unmake_officer', to: 'users#unmakeOfficer', as: 'unmake_Officer' 
       get 'make_officer', to: 'users#makeOfficer', as: 'make_officer'
       get 'delete', to: 'users#delete'
+    end
+    collection do 
+      get :about
     end
   end
   

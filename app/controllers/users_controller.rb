@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def about
+    @officers = User.where(is_officer: true)
+  end
+
   def account
     @user = User.find(params[:id])
   end
