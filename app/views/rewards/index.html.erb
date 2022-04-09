@@ -29,6 +29,10 @@
   </tbody>
 </table>
 
+<% if @rewardCheck.exists? == false %>
+<p>No Rewards Yet!</p>
+<% end %>
+
 <br>
 <% if current_user.is_admin == true %>
   <%= button_to 'New Reward', new_reward_path, :method => :get %>
