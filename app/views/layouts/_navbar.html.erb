@@ -1,6 +1,6 @@
 <nav class="sticky-top">
         <div class="logo">
-            <%= image_tag "MegsoLogo.png" %>
+            <a href="<%=events_path%>"><%= image_tag "MegsoLogo.png" %></a>
         </div>
         <% if current_user.is_admin == true %>
             <ul class="nav-links">
