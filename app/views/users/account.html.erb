@@ -42,4 +42,11 @@
   <%= @user.is_officer %>
 </p>
 
-<%= button_to 'Edit', edit_user_path(@user), :method => :get %>
+<table>
+      <thead>
+        <tr>
+          <th><%= button_to 'Edit', edit_user_path(@user), :method => :get %></td>
+          <th><%= button_to 'Logout', logout_path, :method => :delete %></td>
+        </tr>
+      </thead>
+</table>
