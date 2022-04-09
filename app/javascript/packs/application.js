@@ -10,7 +10,7 @@ import "channels"
 import "bootstrap"
 
 const navSlide = () => {
-    window.addEventListener('DOMContentLoaded', (_event) => {
+    document.addEventListener('DOMContentLoaded', (_event) => {
         const burger = document.querySelector('.mobile-burger');
         const nav = document.querySelector('.nav-links');
         const navLinks = document.querySelectorAll('.nav-links li');
@@ -34,7 +34,6 @@ const navSlide = () => {
 const app = () => {
     navSlide();
 }
-
 app();
 Rails.start()
 Turbolinks.start()
