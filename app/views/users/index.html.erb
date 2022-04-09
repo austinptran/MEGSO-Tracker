@@ -92,6 +92,7 @@
         <td><%= button_to 'Show', user, :method => :get %></td>
         <td><%= button_to 'Delete', delete_user_path(user), :method => :get %></td>
         <td><%= button_to 'Make an Admin!', make_admin_path(user), :method => :get %></td>
+        <td><%= button_to 'Remove Officer Permission!', unmake_Officer_user_path(user), :method => :get %></td>
         <% end %>
       </tr>
     <% end %>
@@ -99,6 +100,6 @@
 </table>
 <% end %>
 
-<% if current_user.is_admin == false %>
+<% if current_user.is_admin == false  && current_user.is_admin == false%>
   <h1>You do not have access to this page!</h1>
 <% end %>
