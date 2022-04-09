@@ -63,13 +63,13 @@ class UsersController < ApplicationController
   def acceptOfficer
     @make_officier = User.find(params[:id])
     @make_officier.update_attribute(:is_officer, true)
-    redirect_to(account_user_path(id: current_user.id))
+    redirect_to(account_user_path(id: current_user.id), notice: 'Officer application was successfully sent.')
   end
 
   def unmakeOfficer
     @unmake_officier = User.find(params[:id])
     @unmake_officier.update_attribute(:is_officer, false)
-    redirect_to(users_path)
+    redirect_to(users_path, notice: 'Officer application was successfully denied.')
   end
 
 

@@ -90,7 +90,7 @@
         <td><%= button_to 'Show', user, :method => :get %></td>
         <td><%= button_to 'Delete', delete_user_path(user), :method => :get %></td>
         <td><%= button_to 'Make an Admin!', make_admin_path(user), :method => :get %></td>
-        <td><%= button_to 'Remove Officer Permission!', unmake_Officer_user_path(user), :method => :get %></td>
+        <td><%= button_to 'Deny Officer/Admin Request', unmake_Officer_user_path(user), :method => :get %></td>
         <% end %>
       </tr>
     <% end %>
