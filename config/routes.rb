@@ -36,7 +36,6 @@ Rails.application.routes.draw do
       get 'acceptOfficer', to: 'users#acceptOfficer', as: 'acceptOfficer'
       get 'unmake_officer', to: 'users#unmakeOfficer', as: 'unmake_Officer' 
       get 'delete', to: 'users#delete'
-      get 'about', to: 'users#about'
     end
   end
   
