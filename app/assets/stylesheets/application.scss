@@ -14,12 +14,12 @@
  *= require_self
  */
 
-/* Generic Styling */
+@import "bootstrap/scss/bootstrap";
+/* Google Font- Open Sans*/
 
 :root {
-    --background: #500000;
+    --background: #944547;
 }
-
 /* Navbar Styling */
 
 nav {
@@ -149,3 +149,39 @@ nav a:focus {
     transform: rotate(45deg) translate(-5px,-6px);
 }
 
+/* Button Styling */
+.btn.btn-primary {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    padding: 0.85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--background);
+    color: #fff;
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    border-radius: 1.75rem;
+}
+
+.col-6 p a {
+    text-decoration:none;
+    transition: color 0.2s ease-out;
+    color: #316B90;
+}
+
+.col-6 p a:hover {color:darken(#316B90, 20%);}
+
+body {
+    background-color: #ECF1EB;
+}

@@ -2,7 +2,7 @@
 
 <p>Your Points: <%= current_user.points %></p>
 
-<h1>Rewards (Admin)</h1>
+<h1>Rewards</h1>
 
 <table>
   <thead>
@@ -19,7 +19,7 @@
         <td><%= reward.reward_name %></td>
         <td><%= reward.reward_points %></td>
         <td><%= button_to 'Show', reward, :method => :get %></td>
-        <td><%= button_to 'Accept', accept_reward_path(reward), :method => :get %></td>
+        <td><%= button_to 'Redeem', redeem_reward_path(reward), :method => :get %></td>
         <td><%= button_to 'Edit', edit_reward_path(reward), :method => :get %></td>
         <td><%= button_to 'Delete', delete_reward_path(reward), :method => :get %></td>
       </tr>
@@ -31,24 +31,36 @@
 
 <%= button_to 'New Reward', new_reward_path, :method => :get %>
 
-<h1>Rewards (Students)</h1>
+<br>
+
+<% if current_user.is_admin == true %>
+<h1>Awaiting Confirmation</h1>
 
 <table>
   <thead>
-		<tr>
-		  <th>Reward</th>
-			<th>Points Required</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
+    <tr>
+      <th>Reward</th>
+      <th>Date Redeemed</th>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>UIN</th>
+    </tr>
+  </thead>
 
-	<tbody>
-		<% @rewards.each do |reward| %>
-			<tr>
-			  <td><%= reward.reward_name %></td>
-				<td><%= reward.reward_points %></td>
-        <td><%= button_to 'Accept', accept_reward_path(reward), :method => :get %></td>
-			</tr>
-		<% end %>
-	</tbody>
-<table>
+  <tbody>
+    <% @pending_rewards.each do |pending_reward| %>
+      <tr>
+        <td><%= pending_reward.reward_name %></td>
+        <td><%= pending_reward.created_at %></td>
+        <td><%= get_current_user_email pending_reward.UID %></td>
+        <td><%= get_current_user_first_name pending_reward.UID %></td>
+        <td><%= get_current_user_last_name pending_reward.UID %></td>  
+        <td><%= pending_reward.UID %></td>
+        <td><%= button_to 'Confirm', confirm_reward_rewards_approval_list_path(:reward_id, pending_reward), :method => :get %></td>
+        <td><%= button_to 'Delete', delete_reward_rewards_approval_list_path(:reward_id, pending_reward), :method => :get %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

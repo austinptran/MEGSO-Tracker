@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   resources :rewards do 
     member do 
       get 'delete', to: 'rewards#delete'
+      get 'redeem', to: 'rewards#redeem'
       get 'accept', to: 'rewards#accept'
+    end
+    resources :rewards_approval_lists do
+      member do
+        get 'confirm', to: 'rewards_approval_lists#confirm'
+        get 'delete', to: 'rewards_approval_lists#delete'
+      end
     end
   end
   get 'users/new'
@@ -23,7 +30,12 @@ Rails.application.routes.draw do
       get 'delete', to: 'alumnis#delete'
     end
   end
-  resources :users
+  resources :users do 
+    member do
+      get 'account', to: 'users#account'
+      get 'delete', to: 'users#delete'
+    end
+  end
   
   get 'users/make_admin/:id', to: 'users#makeAdmin', as: 'make_admin' 
   get 'users/unmake_admin/:id', to: 'users#unmakeAdmin', as: 'unmake_admin' 
