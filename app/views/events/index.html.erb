@@ -56,5 +56,8 @@
     <% end %>
     </tbody>
   </table>
+  <% if @events.exists? == false %>
+    <p style="text-align: center;">No Events Yet!</p>
+  <% end %>
 </div>
 </div>
