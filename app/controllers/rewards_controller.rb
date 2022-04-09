@@ -88,6 +88,6 @@ class RewardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reward_params
-    params.require(:reward).permit(:reward_name, :reward_points)
+    params.require(:reward).permit(:reward_name, :reward_points, :reward_description)
   end
 end
