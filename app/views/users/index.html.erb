@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user.is_admin == true %>
+
 <p>Current User is <%= current_user.first_name %></p>
 
 <h1>Admins</h1>
@@ -95,3 +97,8 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
+<% if current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>
