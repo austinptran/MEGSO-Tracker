@@ -38,6 +38,9 @@ Rails.application.routes.draw do
       get 'make_officer', to: 'users#makeOfficer', as: 'make_officer'
       get 'delete', to: 'users#delete'
     end
+    collection do 
+      get :about
+    end
   end
   
   get 'users/make_admin/:id', to: 'users#makeAdmin', as: 'make_admin' 

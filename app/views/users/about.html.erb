@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Officers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Position</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @officers.each do |officer| %>
+      <tr>
+      <% if officer.is_officer == true %>
+        <td><%= officer.first_name %></td>
+        <td><%= officer.last_name %></td>
+        <td><%= officer.position %></td>
+        <td><%= officer.email %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
