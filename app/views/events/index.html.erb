@@ -10,7 +10,9 @@
   </div>
 </div>
 <div class="card col-10">
+<% if current_user.is_admin == true %>
   <%= button_to 'New Event', new_event_path, :method => :get, class:"btn btn-primary new-event" %>
+<% end %>
 <div class = "table-responsive bdr">
   <table class="table table-hover">
     <thead>

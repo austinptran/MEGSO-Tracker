@@ -28,8 +28,9 @@
 </table>
 
 <br>
-
-<%= button_to 'New Reward', new_reward_path, :method => :get %>
+<% if current_user.is_admin == true %>
+  <%= button_to 'New Reward', new_reward_path, :method => :get %>
+<% end %>
 
 <br>
 

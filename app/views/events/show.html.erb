@@ -35,8 +35,14 @@
   <%= @event.event_verification %>
 </p>
 
+<p>
+  <strong>Event Description:</strong>
+  <br><%= @event.event_description %>
+</p>
+
 <br>
 
+<% if current_user.is_admin == true %>
 <table>
   <thead>
     <tr>
@@ -53,6 +59,7 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
