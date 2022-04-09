@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   resources :users do 
     member do
       get 'account', to: 'users#account'
+      get 'applyOfficer', to: 'users#applyOfficer'
+      get 'acceptOfficer', to: 'users#acceptOfficer', as: 'acceptOfficer'
+      get 'unmake_officer', to: 'users#unmakeOfficer', as: 'unmake_Officer' 
       get 'delete', to: 'users#delete'
     end
   end

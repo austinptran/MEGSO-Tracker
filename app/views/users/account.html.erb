@@ -50,3 +50,7 @@
         </tr>
       </thead>
 </table>
+
+<% if current_user.is_officer == false && current_user.is_admin == false %>
+  <br><th><%= button_to 'Apply to be an Officer!', applyOfficer_user_path(current_user), :method => :get %></td>
+<% end %>
