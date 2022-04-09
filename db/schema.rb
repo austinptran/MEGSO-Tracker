@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2022_04_09_183510) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.boolean "officer_apply"
   end
 
 end
