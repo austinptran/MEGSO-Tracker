@@ -30,16 +30,27 @@
   <%= @user.rewards_earned %>
 </p>
 
+<% if @user.is_admin == true %>
 <p>
   <strong>Is an Admin:</strong>
   <%= @user.is_admin %>
 </p>
+<% end %>
 
 <p>
   <strong>Is a Officer:</strong>
   <%= @user.is_officer %>
 </p>
 
-<br>
+<table>
+      <thead>
+        <tr>
+          <th><%= button_to 'Edit', edit_user_path(@user), :method => :get %></td>
+          <th><%= button_to 'Logout', logout_path, :method => :delete %></td>
+        </tr>
+      </thead>
+</table>
 
-<%= button_to 'Back to Users List', users_path, :method => :get %>
+<% if current_user.is_officer == false && current_user.is_admin == false %>
+  <br><th><%= button_to 'Apply to be an Officer!', applyOfficer_user_path(current_user), :method => :get %></td>
+<% end %>

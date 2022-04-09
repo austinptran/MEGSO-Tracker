@@ -36,16 +36,17 @@
 </p>
 
 <p>
-  <strong>Attendee List ID:</strong>
-  <%= @event.event_attendee_list_id %>
+  <strong>Event Description:</strong>
+  <br><%= @event.event_description %>
 </p>
 
+<br>
+
+<% if current_user.is_admin == true %>
 <table>
-  <strong>Attendence List:</strong>
   <thead>
     <tr>
-
-      <th>Name</th>
+      <th>Attendence List:</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -58,6 +59,9 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
+<br>
 
 <table>
       <thead>

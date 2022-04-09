@@ -30,7 +30,15 @@ Rails.application.routes.draw do
       get 'delete', to: 'alumnis#delete'
     end
   end
-  resources :users
+  resources :users do 
+    member do
+      get 'account', to: 'users#account'
+      get 'applyOfficer', to: 'users#applyOfficer'
+      get 'acceptOfficer', to: 'users#acceptOfficer', as: 'acceptOfficer'
+      get 'unmake_officer', to: 'users#unmakeOfficer', as: 'unmake_Officer' 
+      get 'delete', to: 'users#delete'
+    end
+  end
   
   get 'users/make_admin/:id', to: 'users#makeAdmin', as: 'make_admin' 
   get 'users/unmake_admin/:id', to: 'users#unmakeAdmin', as: 'unmake_admin' 

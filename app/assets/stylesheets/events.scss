@@ -1,3 +1,80 @@
-// Place all the styles related to the Events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+    --background: #944547;
+}
+
+th {
+    color: #fff;
+}
+
+table td a {
+    text-decoration:none;
+    transition: color 0.2s ease-out;
+    color:#316B90;
+}
+table td a:hover {color:darken(#316B90, 20%);}
+
+thead {
+    background-color: var(--background);
+}
+.bdr {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.col-10 {
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 100rem;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
+    -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    align-items: center;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.btn-group {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-group .btn:not(:last-child):not(.dropdown-toggle), .btn-group .btn.btn-outline-secondary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group .btn:last-child:not(.dropdown-toggle), .btn-group .btn.btn-outline-secondary  {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn.btn-secondary {
+    background: var(--background);
+    border-color: var(--background);
+    color: #fff;
+}
+
+.btn-group > .btn, .btn-group-vertical > .btn {
+    position: relative;
+    flex: 1 1 auto;
+}
+
+
+.btn.btn-secondary, .btn.btn-outline-secondary {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 0 40px 0 40px;
+    font-size: 14px;
+    font-weight: 500;
+}
