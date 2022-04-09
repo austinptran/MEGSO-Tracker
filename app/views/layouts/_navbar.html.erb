@@ -8,7 +8,7 @@
                 <li><a href="<%=alumnis_path%>">Alumni</a></li>
                 <li><a href="<%=rewards_path%>">Rewards</a></li>
                 <li><a href="<%=users_path%>">Users</a></li>
-                <li><a href="<%=account_user_path(id: current_user.id)%>">Account</a></li>
+                <li><a href="<%=account_user_path(id: current_user.id)%>"><%= current_user.first_name %>'s Account</a></li>
             </ul>
         <% else %>
             <ul class="nav-links">

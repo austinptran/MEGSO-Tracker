@@ -17,7 +17,7 @@ class User < ApplicationRecord
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :UID, presence: true, length:{minimum: 9, maximum: 9}, numericality: { only_integer: true }
+    validates :UID, presence: true, uniqueness: true, length:{minimum: 9, maximum: 9}, numericality: { only_integer: true }
     validates :password, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: true
 
