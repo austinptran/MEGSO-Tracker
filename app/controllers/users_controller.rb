@@ -48,11 +48,14 @@ class UsersController < ApplicationController
   def makeAdmin
     @makeAdmin = User.find(params[:id])
     @makeAdmin.update_attribute(:is_admin, true)
+    @makeAdmin.update_attribute(:is_officer, true)
     redirect_to(users_url)
   end
   def unmakeAdmin
     @unmakeAdmin = User.find(params[:id])
     @unmakeAdmin.update_attribute(:is_admin, false)
+    @unmakeAdmin.update_attribute(:is_officer, false)
+    @unmakeAdmin.update_attribute(:officer_apply, false)
     redirect_to(users_url)
   end
 
@@ -62,13 +65,21 @@ class UsersController < ApplicationController
 
   def acceptOfficer
     @make_officier = User.find(params[:id])
-    @make_officier.update_attribute(:is_officer, true)
+    @make_officier.update_attribute(:officer_apply, true)
     redirect_to(account_user_path(id: current_user.id), notice: 'Officer application was successfully sent.')
   end
+
+  def makeOfficer
+    @makeOfficier = User.find(params[:id])
+    @makeOfficier.update_attribute(:is_officer, true)
+    @makeOfficier.update_attribute(:officer_apply, false)
+    redirect_to(users_path, notice: 'Officer application was successfully accepted.')
+  end 
 
   def unmakeOfficer
     @unmake_officier = User.find(params[:id])
     @unmake_officier.update_attribute(:is_officer, false)
+    @unmake_officier.update_attribute(:officer_apply, false)
     redirect_to(users_path, notice: 'Officer application was successfully denied.')
   end
 
@@ -91,7 +102,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :UID, :password,
-                                 :password_confirmation, :points, :rewards_earned, :is_officer, :is_admin
+                                 :password_confirmation, :points, :rewards_earned, :is_officer, :is_admin, :officer_apply
     )
   end
 end
