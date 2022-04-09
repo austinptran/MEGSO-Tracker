@@ -2,6 +2,8 @@
 
 <p>Current User is <%= current_user.first_name %></p>
 
+<% if current_user.is_admin == true %>
+
 <h1>Admins</h1>
 
 <table>
@@ -95,3 +97,8 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
+<% if current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>
