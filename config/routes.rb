@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :rewards_earned_lists
+  
   get 'users/new'
   get 'sessions/new'
   resources :events do

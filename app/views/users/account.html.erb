@@ -31,16 +31,23 @@
 </p>
 
 <% if @user.is_admin == true %>
-<p>
-  <strong>Is an Admin:</strong>
-  <%= @user.is_admin %>
-</p>
+  <p>
+    <strong>Is an Admin?</strong>
+    <p>Yes</p>
+  </p>
 <% end %>
 
-<p>
-  <strong>Is a Officer:</strong>
-  <%= @user.is_officer %>
-</p>
+<% if @user.is_officer == true %>
+  <p>
+    <strong>Is an Officer?</strong>
+    <p>Yes</p>
+  </p>
+<% else %>
+  <p>
+  <strong>Is an Officer?</strong>
+  <p>No</p>
+  </p>
+<% end %>
 
 <table>
       <thead>

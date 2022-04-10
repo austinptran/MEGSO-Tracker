@@ -102,3 +102,50 @@
 <br>
 
 <% end %>
+
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-3">
+    <h1>Your Rewards</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+
+<div class="col-10">
+  <div class = "table-responsive bdr">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Reward</th>
+        <th scope="col">Date Redeemed/Earned</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pending_rewards.each do |pending_reward| %>
+        <% if pending_reward.UID == current_user.UID %>
+        <tr>
+          <td scope="row"><%= pending_reward.reward_name %></td>
+          <td><%= pending_reward.created_at %></td>
+          <td>Pending</td>
+        </tr>
+        <% end %>
+      <% end %>
+      <% @earned_rewards.each do |earned_reward| %>
+        <% if earned_reward.UID == current_user.UID %>
+        <tr>
+          <td scope="row"><%= earned_reward.reward_name %></td>
+          <td><%= earned_reward.created_at %></td>
+          <td>Earned</td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+<br>
+
