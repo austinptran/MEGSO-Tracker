@@ -49,7 +49,6 @@ class RewardsController < ApplicationController
     end
   end
 
-
   def delete
     @reward = Reward.find(params[:id])
   end
@@ -59,7 +58,7 @@ class RewardsController < ApplicationController
     @reward.destroy
 
     respond_to do |format|
-      format.html { redirect_to rewards_url, notice: 'Reward was successfully deleted.' }
+      format.html { redirect_to(rewards_url, notice: 'Reward was successfully deleted.') }
       format.json { head(:no_content) }
     end
   end

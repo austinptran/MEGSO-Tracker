@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class RewardsApprovalListsController < ApplicationController
-  before_action :set_rewards_approval_list, only: %i[ show edit update destroy ]
+  before_action :set_rewards_approval_list, only: %i[show edit update destroy]
 
   # GET /rewards_approval_lists or /rewards_approval_lists.json
   def index
@@ -7,8 +9,7 @@ class RewardsApprovalListsController < ApplicationController
   end
 
   # GET /rewards_approval_lists/1 or /rewards_approval_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /rewards_approval_lists/new
   def new
@@ -16,8 +17,7 @@ class RewardsApprovalListsController < ApplicationController
   end
 
   # GET /rewards_approval_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /rewards_approval_lists or /rewards_approval_lists.json
   def create
@@ -25,11 +25,11 @@ class RewardsApprovalListsController < ApplicationController
 
     respond_to do |format|
       if @rewards_approval_list.save
-        format.html { redirect_to rewards_approval_list_url(@rewards_approval_list), notice: "Rewards approval list was successfully created." }
-        format.json { render :show, status: :created, location: @rewards_approval_list }
+        format.html { redirect_to(rewards_approval_list_url(@rewards_approval_list), notice: 'Rewards approval list was successfully created.') }
+        format.json { render(:show, status: :created, location: @rewards_approval_list) }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @rewards_approval_list.errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
+        format.json { render(json: @rewards_approval_list.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -38,11 +38,11 @@ class RewardsApprovalListsController < ApplicationController
   def update
     respond_to do |format|
       if @rewards_approval_list.update(rewards_approval_list_params)
-        format.html { redirect_to rewards_approval_list_url(@rewards_approval_list), notice: "Rewards approval list was successfully updated." }
-        format.json { render :show, status: :ok, location: @rewards_approval_list }
+        format.html { redirect_to(rewards_approval_list_url(@rewards_approval_list), notice: 'Rewards approval list was successfully updated.') }
+        format.json { render(:show, status: :ok, location: @rewards_approval_list) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @rewards_approval_list.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @rewards_approval_list.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -61,8 +61,8 @@ class RewardsApprovalListsController < ApplicationController
     @rewards_approval_list.destroy
 
     respond_to do |format|
-      format.html { redirect_to rewards_approval_lists_url, notice: "Rewards approval list was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to(rewards_approval_lists_url, notice: 'Rewards approval list was successfully destroyed.') }
+      format.json { head(:no_content) }
     end
   end
 
@@ -73,19 +73,20 @@ class RewardsApprovalListsController < ApplicationController
     @rewards_approval_list.destroy
 
     respond_to do |format|
-      format.html { redirect_to rewards_url, notice: "Reward was successfully confirmed." }
-      format.json { head :no_content }
+      format.html { redirect_to(rewards_url, notice: 'Reward was successfully confirmed.') }
+      format.json { head(:no_content) }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rewards_approval_list
-      @rewards_approval_list = RewardsApprovalList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def rewards_approval_list_params
-      params.require(:rewards_approval_list).permit(:reward_name, :UID)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rewards_approval_list
+    @rewards_approval_list = RewardsApprovalList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def rewards_approval_list_params
+    params.require(:rewards_approval_list).permit(:reward_name, :UID)
+  end
 end
