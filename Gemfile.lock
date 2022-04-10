@@ -98,7 +98,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    linkedin-scraper (2.1.1)
       mechanize (~> 2)
       random_user_agent
     listen (3.7.1)
@@ -297,7 +296,6 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)
-  linkedin-scraper (~> 2.1, >= 2.1.1)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
