@@ -35,7 +35,7 @@
               <td><%= user.UID %></td>
               <td>
                 <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
-                    <%= button_to 'Edit Position', editPosition_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+                    <%= button_to 'Edit', edit_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
                     <%= button_to 'Delete', delete_user_path(user), :method => :get, class: "btn btn-secondary btn-circle"%>
                     <%= button_to 'Remove Admin', unmake_admin_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
                 </div>
@@ -140,7 +140,7 @@
               <% end %>
               <td>
                 <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
-                  <%= button_to 'Edit Position', editPosition_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+                  <%= button_to 'Edit', edit_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
                   <%= button_to 'Delete', delete_user_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
                   <% if user.is_officer == false %>
                     <%= button_to 'Make an Officer', make_officer_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
@@ -193,7 +193,7 @@
               <td><%= user.UID %></td>
               <td>
                 <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
-                  <%= button_to 'Edit Position', editPosition_user_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
+                  <%= button_to 'Edit', edit_user_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
                   <%= button_to 'Unmake an Officer', unmake_Officer_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
                   <% if user.is_admin == false %>
                     <%= button_to 'Give Admin Permissions', make_admin_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
