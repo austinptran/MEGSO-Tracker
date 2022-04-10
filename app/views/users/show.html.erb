@@ -25,20 +25,49 @@
   <%= @user.points %>
 </p>
 
-<p>
-  <strong>Rewards Earned:</strong>
-  <%= @user.rewards_earned %>
-</p>
+<% if @user.is_admin == true %>
+  <p>
+    <strong>Is an Admin?</strong>
+    <p>Yes</p>
+  </p>
+<% else %>
+  <p>
+    <strong>Is an Admin?</strong>
+    <p>No</p>
+  </p>
+<% end %>
 
-<p>
-  <strong>Is an Admin:</strong>
-  <%= @user.is_admin %>
-</p>
+<% if @user.is_officer == true %>
+  <p>
+    <strong>Is an Officer?</strong>
+    <p>Yes</p>
+  </p>
+<% else %>
+  <p>
+    <strong>Is an Officer?</strong>
+    <p>No</p>
+  </p>
+<% end %>
 
-<p>
-  <strong>Is a Officer:</strong>
-  <%= @user.is_officer %>
-</p>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Earned Rewards:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @earned_rewards.each do |earned_reward| %>
+      <tr>
+      <td><%= earned_reward.reward_name %></td>
+      <td><%= earned_reward.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 
