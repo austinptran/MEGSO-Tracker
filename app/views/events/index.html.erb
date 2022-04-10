@@ -4,13 +4,14 @@
   <div class = "col-3">
     <h1>Events</h1>
     <p id="notice"><%= notice %></p>
-    <p>Current User is <%= current_user.first_name %></p>
   </div>
   <div class = "col">
   </div>
 </div>
 <div class="card col-10">
+<% if current_user.is_admin == true %>
   <%= button_to 'New Event', new_event_path, :method => :get, class:"btn btn-primary new-event" %>
+<% end %>
 <div class = "table-responsive bdr">
   <table class="table table-hover">
     <thead>
@@ -21,7 +22,9 @@
         <th scope="col">Event Date</th>
         <th scope="col">Start Time</th>
         <th scope="col">End Time</th>
-        <th scope="col">Event Verification Code</th>
+        <% if current_user.is_admin == true %>
+          <th scope="col">Event Verification Code</th>
+        <% end %>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -35,17 +38,26 @@
         <td><%= event.event_date %></td>
         <td><%= event.event_start %></td>
         <td><%= event.event_end %></td>
-        <td><%= event.event_verification %></td>
+        <% if current_user.is_admin == true %>
+          <td><%= event.event_verification %></td>
+        <% end %>
         <td>
             <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
+            <% if current_user.is_admin == true %>
               <%= button_to 'Register', register_event_path(event), class: "btn btn-secondary" %>
               <%= button_to 'Edit', edit_event_path(event), :method => :get, class: "btn btn-outline-secondary" %>
               <%= button_to 'Delete', delete_event_path(event), :method => :get, class: "btn btn-secondary" %>
+            <% else %>
+              <%= button_to 'Register', register_event_path(event), class: "btn btn-secondary" %>
+            <% end %>
             </div>
         </td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <% if @events.exists? == false %>
+    <p style="text-align: center;">No Events Yet!</p>
+  <% end %>
 </div>
 </div>

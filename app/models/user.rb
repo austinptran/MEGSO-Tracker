@@ -17,7 +17,7 @@ class User < ApplicationRecord
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :UID, presence: true, length:{minimum: 9, maximum: 9}, numericality: { only_integer: true }
+    validates :UID, presence: true, uniqueness: true, length:{minimum: 9, maximum: 9}, numericality: { only_integer: true }
     validates :password, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: true
 
@@ -46,8 +46,11 @@ class User < ApplicationRecord
   def set_defaults
     self.points ||= 0
     self.rewards_earned ||= 0
+    self.is_officer ||= false
+    self.officer_apply ||= false
     if self.email == 'shanebrown013@tamu.edu' || self.email == 'ashoksteelers12@tamu.edu' || self.email == 'mojoatm2023@tamu.edu' || self.email == 'plantand000@tamu.edu' || self.email == 'austinptran.2000@tamu.edu' || self.email == 'justiceu@tamu.edu' || self.email == 'cfauver@tamu.edu'
       self.is_admin = true
+      self.is_officer = true
     else
       self.is_admin = false
     end

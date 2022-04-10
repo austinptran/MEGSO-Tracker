@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>First UID:</strong>
+  <strong>UIN:</strong>
   <%= @user.UID %>
 </p>
 
@@ -42,4 +42,15 @@
   <%= @user.is_officer %>
 </p>
 
-<%= button_to 'Edit', edit_user_path(@user), :method => :get %>
+<table>
+      <thead>
+        <tr>
+          <th><%= button_to 'Edit', edit_user_path(@user), :method => :get %></td>
+          <th><%= button_to 'Logout', logout_path, :method => :delete %></td>
+        </tr>
+      </thead>
+</table>
+
+<% if current_user.officer_apply == false && current_user.is_admin == false && current_user.is_officer == false %>
+  <br><th><%= button_to 'Apply to be an Officer!', applyOfficer_user_path(current_user), :method => :get %></td>
+<% end %>

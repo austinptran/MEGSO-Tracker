@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>Your Points: <%= current_user.points %></p>
+<h3>Your Points: <%= current_user.points %></h3>
 
 <h1>Rewards</h1>
 
@@ -20,16 +20,23 @@
         <td><%= reward.reward_points %></td>
         <td><%= button_to 'Show', reward, :method => :get %></td>
         <td><%= button_to 'Redeem', redeem_reward_path(reward), :method => :get %></td>
-        <td><%= button_to 'Edit', edit_reward_path(reward), :method => :get %></td>
-        <td><%= button_to 'Delete', delete_reward_path(reward), :method => :get %></td>
+        <% if current_user.is_admin == true %>
+          <td><%= button_to 'Edit', edit_reward_path(reward), :method => :get %></td>
+          <td><%= button_to 'Delete', delete_reward_path(reward), :method => :get %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<% if @rewardCheck.exists? == false %>
+<p>No Rewards Yet!</p>
+<% end %>
 
-<%= button_to 'New Reward', new_reward_path, :method => :get %>
+<br>
+<% if current_user.is_admin == true %>
+  <%= button_to 'New Reward', new_reward_path, :method => :get %>
+<% end %>
 
 <br>
 

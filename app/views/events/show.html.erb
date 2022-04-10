@@ -30,13 +30,21 @@
   <%= @event.event_end %>
 </p>
 
+<% if current_user.is_admin == true %>
 <p>
   <strong>Event Verification Code:</strong>
   <%= @event.event_verification %>
 </p>
+<% end %>
+
+<p>
+  <strong>Event Description:</strong>
+  <br><%= @event.event_description %>
+</p>
 
 <br>
 
+<% if current_user.is_admin == true %>
 <table>
   <thead>
     <tr>
@@ -53,13 +61,16 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
 <table>
       <thead>
         <tr>
-          <th><%= button_to 'Edit', edit_event_path(@event), :method => :get %></td>
+          <% if current_user.is_admin == true %>
+            <th><%= button_to 'Edit', edit_event_path(@event), :method => :get %></td>
+          <% end %>
           <th><%= button_to 'Back to Event List', events_path, :method => :get %></td>
         </tr>
       </thead>
