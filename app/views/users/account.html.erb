@@ -31,16 +31,23 @@
 </p>
 
 <% if @user.is_admin == true %>
-<p>
-  <strong>Is an Admin:</strong>
-  <%= @user.is_admin %>
-</p>
+  <p>
+    <strong>Is an Admin?</strong>
+    <p>Yes</p>
+  </p>
 <% end %>
 
-<p>
-  <strong>Is a Officer:</strong>
-  <%= @user.is_officer %>
-</p>
+<% if @user.is_officer == true %>
+  <p>
+    <strong>Is an Officer?</strong>
+    <p>Yes</p>
+  </p>
+<% else %>
+  <p>
+  <strong>Is an Officer?</strong>
+  <p>No</p>
+  </p>
+<% end %>
 
 <table>
       <thead>
@@ -51,6 +58,6 @@
       </thead>
 </table>
 
-<% if current_user.is_officer == false && current_user.is_admin == false %>
+<% if current_user.officer_apply == false && current_user.is_admin == false && current_user.is_officer == false %>
   <br><th><%= button_to 'Apply to be an Officer!', applyOfficer_user_path(current_user), :method => :get %></td>
 <% end %>

@@ -7,6 +7,8 @@ class RewardsController < ApplicationController
   def index
     @rewards = Reward.all.sort_by { |reward| -reward.reward_points }
     @pending_rewards = RewardsApprovalList.all
+    @earned_rewards = RewardsEarnedList.where(UID: current_user.UID)
+    @rewardCheck = Reward.all
   end
 
   # GET /rewards/1 or /rewards/1.json
@@ -88,6 +90,6 @@ class RewardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reward_params
-    params.require(:reward).permit(:reward_name, :reward_points)
+    params.require(:reward).permit(:reward_name, :reward_points, :reward_description)
   end
 end

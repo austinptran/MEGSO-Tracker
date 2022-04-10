@@ -1,6 +1,6 @@
 <nav class="sticky-top">
         <div class="logo">
-            <a href="<%=events_path%>"><%= image_tag "MegsoLogo.png" %></a>
+            <a href="<%=about_users_path%>"><%= image_tag "MegsoLogo.png" %></a>
         </div>
         <% if current_user.is_admin == true %>
             <ul class="nav-links">
@@ -14,7 +14,7 @@
             <ul class="nav-links">
                 <li><a href="<%=events_path%>">Events</a></li>
                 <li><a href="<%=rewards_path%>">Rewards</a></li>
-                <li><a href="<%=account_user_path(id: current_user.id)%>">Account</a></li>
+                <li><a href="<%=account_user_path(id: current_user.id)%>"><%= current_user.first_name %>'s Account</a></li>
             </ul>
         <% end %>
         <div class="mobile-burger">
