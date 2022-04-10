@@ -9,13 +9,4 @@ module UsersHelper
   def is_admin?(user)
     user.is_admin?
   end
-  
-  def check_first_name
-    @first_name || nil
-  end
-
-  def check_user_email
-    @email || nil
-
-  end
 end

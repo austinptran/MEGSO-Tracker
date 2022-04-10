@@ -21,12 +21,4 @@ module RewardsHelper
     @user = User.find_by(UID: uid)
     @email = @user.email
   end
-
-  def check_reward_name
-    @reward_name || nil
-  end
-
-  def check_reward_points
-    @reward_points || nil
-  end
 end

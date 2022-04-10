@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     @makeAdmin.update_attribute(:is_officer, true)
     redirect_to(users_url)
   end
+
   def unmakeAdmin
     @unmakeAdmin = User.find(params[:id])
     @unmakeAdmin.update_attribute(:is_admin, false)
@@ -79,7 +80,7 @@ class UsersController < ApplicationController
     @makeOfficier.update_attribute(:is_officer, true)
     @makeOfficier.update_attribute(:officer_apply, false)
     redirect_to(users_path, notice: 'Officer application was successfully accepted.')
-  end 
+  end
 
   def unmakeOfficer
     @unmake_officier = User.find(params[:id])
@@ -87,7 +88,6 @@ class UsersController < ApplicationController
     @unmake_officier.update_attribute(:officer_apply, false)
     redirect_to(users_path, notice: 'Officer application was successfully denied.')
   end
-
 
   # DELETE /points/1 or /points/1.json
   def destroy
@@ -107,7 +107,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :UID, :password,
-                                 :password_confirmation, :points, :rewards_earned, :is_officer, :is_admin, :officer_apply
-    )
+                                 :password_confirmation, :points, :rewards_earned, :is_officer, :is_admin, :officer_apply)
   end
 end
