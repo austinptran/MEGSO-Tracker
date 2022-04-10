@@ -27,6 +27,10 @@ class UsersController < ApplicationController
 
   def edit; end
 
+  def editPosition
+  end
+
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -112,5 +116,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :UID, :password,
                                  :password_confirmation, :points, :rewards_earned, :is_officer, :is_admin, :officer_apply)
+  end
+
+  def editPosition_params
+    params.require(:user).permit(:first_name, :last_name, :position)
   end
 end
