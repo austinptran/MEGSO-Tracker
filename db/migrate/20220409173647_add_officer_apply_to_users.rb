@@ -1,5 +1,9 @@
-class AddOfficerApplyToUsers < ActiveRecord::Migration[6.1]
+class CreateOfficers < ActiveRecord::Migration[6.1]
   def change
-    add_column :users, :officer_apply, :boolean
+    create_table :officers do |t|
+      t.string :position
+
+      t.timestamps
+    end
   end
 end
