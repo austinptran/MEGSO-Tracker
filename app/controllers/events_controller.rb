@@ -77,20 +77,6 @@ class EventsController < ApplicationController
     @event = Event.all
   end
 
-  # Used to create an attendence list when the user hits a button
-  def register
-    set_event
-    @event_id = @event.event_attendee_list_id
-    @member = current_user
-    if AttendeeList.exists?(attendee_list_id: @event_id, UID: @member.UID)
-      redirect_to(:events, notice: 'You have aleady registered for that event.')
-    else
-      current_user.update_attribute(:points, current_user.points + @event.event_point)
-      @new_event = AttendeeList.create!(attendee_list_id: @event_id, UID: @member.UID)
-      redirect_to(:events, notice: 'You have successfully registered!')
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.

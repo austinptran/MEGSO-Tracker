@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<p id="codeMatch"></p>
+
 <h1>Events</h1>
 
 <p>Current User is <%= current_user.first_name %></p>
@@ -20,25 +22,48 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.event_name %></td>
-        <td><%= event.event_point %></td>
-        <td><%= event.event_location %></td>
-        <td><%= event.event_date %></td>
-        <td><%= event.event_start %></td>
-        <td><%= event.event_end %></td>
-        <td><%= event.event_verification %></td>
-        <td><%= event.event_attendee_list_id %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= button_to 'Register', register_event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', delete_event_path(event) %></td>
-      </tr>
-    <% end %>
-  </tbody>
+
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.event_name %></td>
+      <td><%= event.event_point %></td>
+      <td><%= event.event_location %></td>
+      <td><%= event.event_date %></td>
+      <td><%= event.event_start %></td>
+      <td><%= event.event_end %></td>
+      <td><%= event.event_verification %></td>
+      <td><%= event.event_attendee_list_id %></td>
+      <td><%= link_to 'Show', event %></td>
+      <td><%= button_tag 'Register', onclick: "myFunction('#{event.event_verification}, #{event.id}')" %></td>
+      <td><%= link_to 'Edit', edit_event_path(event) %></td>
+      <td><%= link_to 'Destroy', delete_event_path(event) %></td>
+    </tr>
+  <% end %>
+</tbody>
 </table>
 
 <br>
+
+<script>
+  function myFunction(eventVerificationCode, eventID) {
+    eventID = eventVerificationCode.slice(eventVerificationCode.indexOf(",")+2);
+    eventVerificationCode = eventVerificationCode.slice(0,eventVerificationCode.indexOf(","));
+
+    let path = "events/register/"+eventID;
+
+    let text;
+    let userCode = prompt("Please enter the verification code" + path);
+    console.log(userCode);
+
+    if (userCode == eventVerificationCode) {
+      text = "Successfully Registered for Event!";
+      document.cookie = "event_id="+eventID;
+      <%= registerPerson %>
+    } else {
+      text = "Wrong Code!";
+    }
+    document.getElementById("codeMatch").innerHTML = text;
+  }
+</script>
 
 <%= link_to 'New Event', new_event_path %>

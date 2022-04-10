@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     resources :attendee_lists
   end
 
-  post 'events/register/:id', to: 'events#register', as: 'register_event'
-
   resources :occupations
   resources :alumnis do
     member do
@@ -24,8 +22,6 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-
-  resources :events
 
   get 'events/delete/:id', to: 'events#delete', as: 'delete_event'
   get 'sessions/destroy/:id', to: 'sessions#destroy', as: 'destroy_session'
