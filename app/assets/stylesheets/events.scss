@@ -22,6 +22,7 @@ thead {
 }
 
 .col-10 {
+    text-align: center;
     border-radius: 8px;
     padding: 1.5rem;
     max-width: 100rem;
@@ -42,20 +43,7 @@ thead {
     position: relative;
     display: inline-flex;
     vertical-align: middle;
-}
-
-.btn-block {
-    width: 100%;
-}
-
-.btn-group .btn:not(:last-child):not(.dropdown-toggle), .btn-group .btn.btn-outline-secondary {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.btn-group .btn:last-child:not(.dropdown-toggle), .btn-group .btn.btn-outline-secondary  {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    text-align: center;
 }
 
 .btn.btn-secondary {
@@ -64,17 +52,10 @@ thead {
     color: #fff;
 }
 
-.btn-group > .btn, .btn-group-vertical > .btn {
-    position: relative;
-    flex: 1 1 auto;
-}
-
-
-.btn.btn-secondary, .btn.btn-outline-secondary {
-    padding: 12px 20px;
-    cursor: pointer;
-    border-width: 1px;
-    border-radius: 0 40px 0 40px;
-    font-size: 14px;
-    font-weight: 500;
+.btn-circle {
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
 }
