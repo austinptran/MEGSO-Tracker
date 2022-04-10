@@ -28,7 +28,12 @@
 
     <div class="field">
       <%= form.label :UID, "UIN" %>
-      <%= form.number_field :UID %>
+      <%= user.UID %>
+    </div>
+
+    <div class="field">
+      <%= form.label :position, "Position In Org" %>
+      <%= form.text_field :position %>
     </div>
   
     <div class="actions">
