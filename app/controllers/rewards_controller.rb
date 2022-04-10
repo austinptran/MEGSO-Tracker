@@ -7,6 +7,7 @@ class RewardsController < ApplicationController
   def index
     @rewards = Reward.all.sort_by { |reward| -reward.reward_points }
     @pending_rewards = RewardsApprovalList.all
+    @earned_rewards = RewardsEarnedList.where(UID: current_user.UID)
     @rewardCheck = Reward.all
   end
 

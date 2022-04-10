@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy makeAdmin unmakeAdmin]
   def show
     @user = User.find(params[:id])
+    @earned_rewards = RewardsEarnedList.where(UID: @user.UID)
   end
 
   def about
