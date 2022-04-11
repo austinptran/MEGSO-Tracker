@@ -77,3 +77,14 @@ form {
         text-align: center;
     }
 }
+
+.card .card-header p {
+    margin-top: 1rem !important;
+    color: var(--background);
+    font-weight: bold;
+    font-size: large;
+}
+
+.button-col {
+    text-align: center;
+}
