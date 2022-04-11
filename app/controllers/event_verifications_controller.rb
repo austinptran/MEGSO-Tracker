@@ -40,9 +40,11 @@ class EventVerificationsController < ApplicationController
     respond_to do |format|
       if @event_verification.update(event_verification_params)
         if @event_verification.event_verification == @registered_event.event_verification
+          current_user.update_attribute(:points, current_user.points + @registered_event.event_point)
           format.html { redirect_to events_path, notice: "Successfully registed for event." }
         else
           format.html { redirect_to events_path, notice: "Incorrect event verification code." }
+          @event_verification.destroy
           @delete_attendees = AttendeeList.where(UID: current_user.UID)
           @delete_attendees.each(&:destroy)
         end

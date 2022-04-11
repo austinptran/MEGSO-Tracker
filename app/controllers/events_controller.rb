@@ -85,7 +85,6 @@ class EventsController < ApplicationController
     if AttendeeList.exists?(attendee_list_id: @event_id, UID: @member.UID)
       redirect_to(:events, notice: 'You have aleady registered for that event.')
     else
-      current_user.update_attribute(:points, current_user.points + @event.event_point)
       @new_event = AttendeeList.create!(attendee_list_id: @event_id, UID: @member.UID)
       redirect_to edit_event_verification_path(@user_event_code)
     end
