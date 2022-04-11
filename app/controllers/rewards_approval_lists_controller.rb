@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RewardsApprovalListsController < ApplicationController
+  before_action :authorize_user
   before_action :set_rewards_approval_list, only: %i[show edit update destroy]
 
   # GET /rewards_approval_lists or /rewards_approval_lists.json

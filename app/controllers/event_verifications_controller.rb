@@ -1,4 +1,5 @@
 class EventVerificationsController < ApplicationController
+  before_action :authorize_user
   before_action :set_event_verification, only: %i[ show edit update destroy ]
 
   # GET /event_verifications or /event_verifications.json

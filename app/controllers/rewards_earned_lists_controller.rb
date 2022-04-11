@@ -1,4 +1,5 @@
 class RewardsEarnedListsController < ApplicationController
+  before_action :authorize_user
   before_action :set_rewards_earned_list, only: %i[ show edit update destroy ]
 
   # GET /rewards_earned_lists or /rewards_earned_lists.json

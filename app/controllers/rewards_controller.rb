@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RewardsController < ApplicationController
+  before_action :authorize_user
   before_action :set_reward, only: %i[show edit update destroy]
 
   # GET /rewards or /rewards.json
