@@ -54,6 +54,7 @@ class UsersController < ApplicationController
     @makeAdmin = User.find(params[:id])
     @makeAdmin.update_attribute(:is_admin, true)
     @makeAdmin.update_attribute(:is_officer, true)
+    @makeAdmin.update_attribute(:position, 'Officer')
     redirect_to(users_url)
   end
 
@@ -62,6 +63,7 @@ class UsersController < ApplicationController
     @unmakeAdmin.update_attribute(:is_admin, false)
     @unmakeAdmin.update_attribute(:is_officer, false)
     @unmakeAdmin.update_attribute(:officer_apply, false)
+    @unmakeAdmin.update_attribute(:position, 'Member')
     redirect_to(users_url)
   end
 
@@ -79,6 +81,7 @@ class UsersController < ApplicationController
     @makeOfficier = User.find(params[:id])
     @makeOfficier.update_attribute(:is_officer, true)
     @makeOfficier.update_attribute(:officer_apply, false)
+    @makeOfficier.update_attribute(:position, 'Officer')
     redirect_to(users_path, notice: 'Officer application was successfully accepted.')
   end
 
@@ -86,6 +89,7 @@ class UsersController < ApplicationController
     @unmake_officier = User.find(params[:id])
     @unmake_officier.update_attribute(:is_officer, false)
     @unmake_officier.update_attribute(:officer_apply, false)
+    @unmake_officier.update_attribute(:position, 'Member')
     redirect_to(users_path, notice: 'Officer application was successfully denied.')
   end
 

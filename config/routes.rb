@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+ 
   resources :rewards do 
     member do 
       get 'delete', to: 'rewards#delete'
