@@ -12,6 +12,7 @@
             </ul>
         <% else %>
             <ul class="nav-links">
+            <li><a href="<%=about_users_path%>">About</a></li>
                 <li><a href="<%=events_path%>">Events</a></li>
                 <li><a href="<%=rewards_path%>">Rewards</a></li>
                 <li><a href="<%=account_user_path(id: current_user.id)%>"><%= current_user.first_name %>'s Account</a></li>
