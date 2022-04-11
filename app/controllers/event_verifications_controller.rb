@@ -38,28 +38,22 @@ class EventVerificationsController < ApplicationController
   # PATCH/PUT /event_verifications/1 or /event_verifications/1.json
   def update
     @registered_event = Event.where(id: @event_verification.event_id).first
+    @event_id = @registered_event.event_attendee_list_id
     respond_to do |format|
       if @event_verification.update(event_verification_params)
         if @event_verification.event_verification == @registered_event.event_verification
+          @new_event = AttendeeList.create!(attendee_list_id: @event_id, UID: current_user.UID)
           current_user.update_attribute(:points, current_user.points + @registered_event.event_point)
           format.html { redirect_to events_path, notice: "Successfully registed for event." }
         else
           format.html { redirect_to events_path, notice: "Incorrect event verification code." }
           @event_verification.destroy
-          @delete_attendees = AttendeeList.where(UID: current_user.UID)
-          @delete_attendees.each(&:destroy)
         end
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @event_verification.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def deleteAttendee
-    @delete_attendees = AttendeeList.where(UID: current_user.UID)
-    @delete_attendees.each(&:destroy)
-    redirect_to events_path
   end
 
   # DELETE /event_verifications/1 or /event_verifications/1.json
