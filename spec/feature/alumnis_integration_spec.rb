@@ -19,6 +19,7 @@ RSpec.describe 'Add an Alumni', type: :feature do
     fill_in 'LinkedIn URL', with: 'https://www.linkedin.com/in/austinptran'
     fill_in 'Graduation Year', with: '2022'
     fill_in 'Highest Position', with: 'President'
+		
     click_on 'Create Alumni'
     visit alumnis_path
     expect(page).to have_content('https://www.linkedin.com/in/austinptran')

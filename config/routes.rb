@@ -2,6 +2,11 @@
 
 Rails.application.routes.draw do
  
+  resources :event_verifications do 
+    member do
+      get 'deleteAttendee', to: 'event_verifications#deleteAttendee'
+    end
+  end
   resources :rewards do 
     member do 
       get 'delete', to: 'rewards#delete'
