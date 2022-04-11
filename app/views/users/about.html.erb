@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<br><brt>
 <center><h1>Your MEGSO Officers<h1></center>
 
-<br>
+<br><br>
 
 <div class="row">
   <% @officers.each do |officer| %>
@@ -15,6 +16,7 @@
           <p class="position"><%= officer.position %></p>
           <p class="contact"><%= officer.email %></p>
         </div>
+        <br>
       </div>
     <% end %>
   <% end %>
