@@ -162,6 +162,9 @@
     </tbody>
   </table>
   </div>
+  <% if @pending_rewards.exists? == false && @earned_rewards.exists? == false%>
+  <p>No Rewards Yet!</p>
+  <% end %>
 </div>
 <br>
 

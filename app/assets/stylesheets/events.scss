@@ -1,3 +1,5 @@
+
+
 :root {
     --background: #944547;
 }
@@ -58,4 +60,31 @@ thead {
     text-align: center;
     font-size: 12px;
     line-height: 1.42857;
+}
+
+.form-group label {
+    text-align: center !important;
+    display: block !important;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: bold;
+}
+
+form {
+    .stime, .date, .etime {
+        text-align: center;
+    }
+    .button-col {
+        text-align: center;
+    }
+}
+
+.card .card-header p {
+    margin-top: 1rem !important;
+    color: var(--background);
+    font-weight: bold;
+    font-size: large;
+}
+
+.button-col {
+    text-align: center;
 }
