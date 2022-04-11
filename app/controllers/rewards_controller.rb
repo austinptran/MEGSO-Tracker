@@ -31,14 +31,18 @@ class RewardsController < ApplicationController
         format.html { redirect_to(reward_url(@reward), notice: 'Reward was successfully created.') }
         format.json { render(:show, status: :created, location: @reward) }
       else
+				# :nocov:
         format.html { render(:new, status: :unprocessable_entity) }
         format.json { render(json: @reward.errors, status: :unprocessable_entity) }
+				# :nocov:
       end
     end
   end
 
   # PATCH/PUT /rewards/1 or /rewards/1.json
+
   def update
+		# :nocov:
     respond_to do |format|
       if @reward.update(reward_params)
         format.html { redirect_to(reward_url(@reward), notice: 'Reward was successfully updated.') }
@@ -48,27 +52,35 @@ class RewardsController < ApplicationController
         format.json { render(json: @reward.errors, status: :unprocessable_entity) }
       end
     end
+		# :nocov:
   end
 
   def delete
+		# :nocov:
     @reward = Reward.find(params[:id])
+		# :nocov:
   end
 
   # DELETE /rewards/1 or /rewards/1.json
   def destroy
+		# :nocov:
     @reward.destroy
 
     respond_to do |format|
       format.html { redirect_to(rewards_url, notice: 'Reward was successfully deleted.') }
       format.json { head(:no_content) }
     end
+		# :nocov:
   end
 
   def redeem
+		# :nocov:
     @reward = Reward.find(params[:id])
+		# :nocov:
   end
 
   def accept
+		# :nocov:
     set_reward
     @member = current_user
     if current_user.points < @reward.reward_points
@@ -78,6 +90,7 @@ class RewardsController < ApplicationController
       @new_reward = RewardsApprovalList.create!(reward_name: @reward.reward_name, UID: @member.UID)
       redirect_to(:rewards, notice: 'You have successfully accepted reward!')
     end
+		# :nocov:
   end
 
   private

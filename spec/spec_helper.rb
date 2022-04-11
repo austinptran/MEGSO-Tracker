@@ -17,7 +17,10 @@
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+	# add_filter "/app/helpers/rewards_helper.rb"
+	# add_filter "/app/controllers/"
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
