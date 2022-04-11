@@ -52,16 +52,18 @@
     <br>
     <br>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
       </div>
 
-      <div class="actions col-md-4 button-col">
+      <div class="actions col-md-3 button-col">
         <%= form.submit class: "btn btn-secondary"%>
       </div>
 
-      <div class="col-md-4">
+  <% end %>
+      <div class="actions col-md-3 button-col">
+        <%=button_to 'Back to User Page', account_user_path(id: current_user.id), :method => :get, class: "btn btn-outline-secondary"%>
+      </div>
+      <div class="col-md-3">
       </div>
     </div>
-
-  <% end %>
   
