@@ -12,23 +12,43 @@
     <% end %>
   
     <div class="field">
-      <%= form.label :first_name, "First Name" %>
-      <%= form.text_field :first_name %>
+      <%= form.label :first_name, "First Name: " %>
+      <%= user.first_name %>
     </div>
 
     <div class="field">
-      <%= form.label :last_name, "Last Name" %>
-      <%= form.text_field :last_name %>
+      <%= form.label :last_name, "Last Name: " %>
+      <%= user.last_name %>
     </div>
 
     <div class="field">
-      <%= form.label :email, "Email" %>
-      <%= form.email_field :email %>
+      <%= form.label :email, "Email: " %>
+      <%= user.email %>
     </div>
 
     <div class="field">
-      <%= form.label :UID, "UIN" %>
-      <%= form.number_field :UID %>
+      <%= form.label :UID, "UIN: " %>
+      <%= user.UID %>
+    </div>
+
+    <div class="field">
+      <%= form.label :points, "Points: " %>
+      <%= user.points %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rewards_earned, "Rewards Earned: " %>
+      <%= user.rewards_earned %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, "Password" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation, "Password Confirmation" %>
+      <%= form.password_field :password_confirmation %>
     </div>
   
     <div class="actions">
