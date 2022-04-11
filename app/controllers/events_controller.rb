@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :authorize_user
   before_action :set_event, only: %i[show edit update destroy delete]
 
   # GET /events or /events.json
@@ -75,6 +74,20 @@ class EventsController < ApplicationController
 
   def list
     @event = Event.all
+  end
+
+  # Used to create an attendence list when the user hits a button
+  def register
+    set_event
+    @event_id = @event.event_attendee_list_id
+    @member = current_user
+    if AttendeeList.exists?(attendee_list_id: @event_id, UID: @member.UID)
+      redirect_to(:events, notice: 'You have aleady registered for that event.')
+    else
+      current_user.update_attribute(:points, current_user.points + @event.event_point)
+      @new_event = AttendeeList.create!(attendee_list_id: @event_id, UID: @member.UID)
+      redirect_to(:events, notice: 'You have successfully registered!')
+    end
   end
 
   private

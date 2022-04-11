@@ -45,28 +45,7 @@
             <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
             <% if current_user.is_admin == true %>
               <%= button_to 'Edit', edit_event_path(event), :method => :get, class: "btn btn-secondary btn-circle" %>
-              <%= button_tag 'Register', onclick: "myFunction('#{event.event_verification}, #{event.id}')" %>
-              <script>
-                function myFunction(eventVerificationCode, eventID) {
-                  eventID = eventVerificationCode.slice(eventVerificationCode.indexOf(",")+2);
-                  eventVerificationCode = eventVerificationCode.slice(0,eventVerificationCode.indexOf(","));
-
-                  let path = "events/register/"+eventID;
-
-                  let text;
-                  let userCode = prompt("Please enter the verification code" + path);
-                  console.log(userCode);
-
-                  if (userCode == eventVerificationCode) {
-                    text = "Successfully Registered for Event!";
-                    document.cookie = "event_id="+eventID;
-                    <%= registerPerson %>
-                  } else {
-                    text = "Wrong Code!";
-                  }
-                  document.getElementById("codeMatch").innerHTML = text;
-                }
-              </script>
+              <%= button_to 'Register', register_event_path(event), class: "btn btn-outline-secondary btn-circle" %>
               <%= button_to 'Delete', delete_event_path(event), :method => :get, class: "btn btn-secondary btn-circle" %>
             <% else %>
               <%= button_to 'Register', register_event_path(event), class: "btn btn-secondary btn-circle" %>
@@ -77,10 +56,8 @@
     <% end %>
     </tbody>
   </table>
-
   <% if @events.exists? == false %>
     <p style="text-align: center;">No Events Yet!</p>
   <% end %>
-
 </div>
 </div>

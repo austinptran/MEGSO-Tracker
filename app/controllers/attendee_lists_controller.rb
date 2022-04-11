@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AttendeeListsController < ApplicationController
-  before_action :authorize_user
   before_action :set_attendee_list, only: %i[show edit update destroy]
 
   # GET /attendee_lists or /attendee_lists.json
