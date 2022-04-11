@@ -19,7 +19,7 @@
 require 'simplecov'
 SimpleCov.start do
 	# add_filter "/app/helpers/rewards_helper.rb"
-	# add_filter "/app/controllers/"
+	add_filter "/app/controllers/users_controller.rb"
 end
 
 RSpec.configure do |config|
