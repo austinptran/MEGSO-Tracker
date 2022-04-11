@@ -2,7 +2,7 @@
 
 <% if current_user == nil%>
 	<% controller.redirect_to root_path %>
-<% elsif is_admin current_user %>
+<% elsif is_admin? current_user %>
 	<div class="row">
 	  <div class = "col">
 	  </div>
