@@ -192,8 +192,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.0)
-    request_store (1.5.1)
-      rack (>= 1.4)
     rexml (3.2.5)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
@@ -307,9 +305,7 @@ DEPENDENCIES
   brakeman
   byebug
   capybara (>= 3.26)
-  gon
   jbuilder (~> 2.7)
-  jquery-rails
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
