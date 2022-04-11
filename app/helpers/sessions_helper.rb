@@ -32,12 +32,8 @@ module SessionsHelper
   end
 
   # Forgets a persistent session.
-<<<<<<< HEAD
   def forget(_user)
     # user.forget
-=======
-  def forget(user)
->>>>>>> origin/joshua_revised
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
