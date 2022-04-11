@@ -1,84 +1,98 @@
 <p id="notice"><%= notice %></p>
-
+<br>
+<br>
 <div class="row">
-  <div class="col-md-3"
+  <div class="col-4">
   </div>
-  <div class= "card">
-    <p>
-      <strong>Event Name:</strong>
-      <%= @event.event_name %>
-    </p>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p>
+        <%= @event.event_name %>
+      </p>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Event Point:</strong>
+        <%= @event.event_point %>
+      </p>
 
-    <p>
-      <strong>Event Point:</strong>
-      <%= @event.event_point %>
-    </p>
+      <p>
+        <strong>Event Location:</strong>
+        <%= @event.event_location %>
+      </p>
 
-    <p>
-      <strong>Event Location:</strong>
-      <%= @event.event_location %>
-    </p>
+      <p>
+        <strong>Event Date:</strong>
+        <%= @event.event_date %>
+      </p>
 
-    <p>
-      <strong>Event Date:</strong>
-      <%= @event.event_date %>
-    </p>
+      <p>
+        <strong>Start Time:</strong>
+        <%= @event.event_start %>
+      </p>
 
-    <p>
-      <strong>Start Time:</strong>
-      <%= @event.event_start %>
-    </p>
+      <p>
+        <strong>End Time:</strong>
+        <%= @event.event_end %>
+      </p>
 
-    <p>
-      <strong>End Time:</strong>
-      <%= @event.event_end %>
-    </p>
+      <% if current_user.is_admin == true %>
+      <p>
+        <strong>Event Verification Code:</strong>
+        <%= @event.event_verification %>
+      </p>
+      <% end %>
 
-    <% if current_user.is_admin == true %>
-    <p>
-      <strong>Event Verification Code:</strong>
-      <%= @event.event_verification %>
-    </p>
-    <% end %>
-
-    <p>
-      <strong>Event Description:</strong>
-      <br><%= @event.event_description %>
-    </p>
+      <p>
+        <strong>Event Description:</strong>
+        <br><%= @event.event_description %>
+      </p>
+    </div>
+  </div>
+  <div class="col-4">
   </div>
 </div>
 
   <br>
 
   <% if current_user.is_admin == true %>
-  <table>
-    <thead>
-      <tr>
-        <th>Attendence List:</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @attendees.each do |attendee_list| %>
+<div class = "col-6">
+  <div class = "table-responsive bdr">
+    <table class="table table-hover">
+      <thead>
         <tr>
-          <td><%= get_current_user_first_name attendee_list.UID %></td>
+          <th scope="col">Attendence List:</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @attendees.each do |attendee_list| %>
+          <tr>
+            <td scope="row"><%= get_current_user_first_name attendee_list.UID %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
   <% end %>
 
 <br>
 
-<table>
-      <thead>
-        <tr>
-          <% if current_user.is_admin == true %>
-            <th><%= button_to 'Edit', edit_event_path(@event), :method => :get %></td>
-          <% end %>
-          <th><%= button_to 'Back to Event List', events_path, :method => :get %></td>
-        </tr>
-      </thead>
-</table>
+<div class="row">
+    <div class="col-md-4">
+    </div>
+
+    <div class="actions col-md-2 button-col">
+      <% if current_user.is_admin == true %>
+        <%= button_to 'Edit', edit_event_path(@event), :method => :get, class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-2 button-col">
+      <%= button_to 'Back to Event List', events_path, :method => :get, class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
 
