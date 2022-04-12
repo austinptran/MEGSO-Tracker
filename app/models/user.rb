@@ -1,25 +1,23 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # validates :first_name, :last_name, :email, :UID, :password, :password_confirmation, presence: true
   after_initialize :set_defaults, unless: :persisted?
 
   attr_accessor :remember_token
 
-
-    attr_accessor :remember_token
-    before_save { self.email = email.downcase }
-    validates :first_name, presence: true, length: { minimum: 2, maximum: 50 }
-    #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :last_name, presence: true, length: {minimum: 2, maximum: 50 }
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :email, presence: true, length: { maximum: 255 },
-                        format: { with: VALID_EMAIL_REGEX },
-                        uniqueness: { case_sensitive: false }
-    has_secure_password
-    validates :UID, presence: true, length:{minimum: 9, maximum: 9}
-    validates :password, presence: true, length: { minimum: 6 }
-    validates :password_confirmation, presence: true
-
+  before_save { self.email = email.downcase }
+  validates :first_name, presence: true, length: { minimum: 2, maximum: 50 }
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :last_name, presence: true, length: { minimum: 2, maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+  has_secure_password
+  validates :UID, presence: true, uniqueness: true, length: { minimum: 9, maximum: 9 }, numericality: { only_integer: true }
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
 
   # Returns the hash digest of the given string.
   def self.digest(string)
@@ -45,5 +43,15 @@ class User < ApplicationRecord
   def set_defaults
     self.points ||= 0
     self.rewards_earned ||= 0
+    self.is_officer ||= false
+    self.position ||= 'Member'
+    self.officer_apply ||= false
+    if email == 'shanebrown013@tamu.edu' || email == 'ashoksteelers12@tamu.edu' || email == 'mojoatm2023@tamu.edu' || email == 'plantand000@tamu.edu' || email == 'austinptran.2000@tamu.edu' || email == 'justiceu@tamu.edu' || email == 'cfauver@tamu.edu'
+      self.is_admin = true
+      self.is_officer = true
+      self.position = 'Officer'
+    else
+      self.is_admin = false
+    end
   end
 end

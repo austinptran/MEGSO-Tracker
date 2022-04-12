@@ -6,12 +6,4 @@ module EventsHelper
     @user = User.find_by(UID: uid)
     @first_name = @user.first_name
   end
-
-  def check_event_date
-    @event_date || nil
-  end
-
-  def check_event_name
-    @event_name || nil
-  end
 end

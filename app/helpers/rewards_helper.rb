@@ -7,11 +7,18 @@ module RewardsHelper
     @points = @user.points
   end
 
-  def check_reward_name
-    @reward_name || nil
+  def get_current_user_first_name(uid)
+    @user = User.find_by(UID: uid)
+    @first_name = @user.first_name
   end
 
-  def check_reward_points
-    @reward_points || nil
+  def get_current_user_last_name(uid)
+    @user = User.find_by(UID: uid)
+    @last_name = @user.last_name
+  end
+
+  def get_current_user_email(uid)
+    @user = User.find_by(UID: uid)
+    @email = @user.email
   end
 end

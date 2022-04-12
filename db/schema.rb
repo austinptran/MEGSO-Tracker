@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_200446) do
+ActiveRecord::Schema.define(version: 2022_04_12_011707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,19 @@ ActiveRecord::Schema.define(version: 2022_03_07_200446) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "highest_position"
+    t.string "alumni_name"
   end
 
   create_table "attendee_lists", force: :cascade do |t|
     t.string "attendee_list_id"
     t.integer "UID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "event_verifications", force: :cascade do |t|
+    t.string "event_verification"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_200446) do
     t.string "event_attendee_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "event_description"
   end
 
   create_table "occupations", force: :cascade do |t|
@@ -51,15 +60,24 @@ ActiveRecord::Schema.define(version: 2022_03_07_200446) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "officers", force: :cascade do |t|
-    t.string "position"
+  create_table "rewards", force: :cascade do |t|
+    t.string "reward_name"
+    t.integer "reward_points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "reward_description"
+  end
+
+  create_table "rewards_approval_lists", force: :cascade do |t|
+    t.string "reward_name"
+    t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "rewards", force: :cascade do |t|
+  create_table "rewards_earned_lists", force: :cascade do |t|
     t.string "reward_name"
-    t.integer "reward_points"
+    t.integer "UID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,12 +89,13 @@ ActiveRecord::Schema.define(version: 2022_03_07_200446) do
     t.integer "UID"
     t.boolean "is_admin"
     t.boolean "is_officer"
-    t.boolean "position"
+    t.string "position"
     t.integer "points"
     t.integer "rewards_earned"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.boolean "officer_apply"
   end
 
 end

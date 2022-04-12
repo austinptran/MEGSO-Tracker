@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  before_action :authorize_user
   before_action :set_event, only: %i[show edit update destroy delete]
 
   # GET /events or /events.json
@@ -67,7 +68,7 @@ class EventsController < ApplicationController
     @event.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(events_url, notice: 'Event was successfully destroyed.') }
+      format.html { redirect_to(events_url, notice: 'Event was successfully deleted.') }
       format.json { head(:no_content) }
     end
   end
@@ -81,12 +82,12 @@ class EventsController < ApplicationController
     set_event
     @event_id = @event.event_attendee_list_id
     @member = current_user
+    @user_event_code = EventVerification.create!(event_id: @event.id)
     if AttendeeList.exists?(attendee_list_id: @event_id, UID: @member.UID)
       redirect_to(:events, notice: 'You have aleady registered for that event.')
     else
-      current_user.update_attribute(:points, current_user.points + @event.event_point)
-      @new_event = AttendeeList.create!(attendee_list_id: @event_id, UID: @member.UID)
-      redirect_to(:events, notice: 'You have successfully registered!')
+      #@new_event = AttendeeList.create!(attendee_list_id: @event_id, UID: @member.UID)
+      redirect_to edit_event_verification_path(@user_event_code)
     end
   end
 
@@ -108,6 +109,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:event_name, :event_point, :event_location, :event_date, :event_start, :event_end, :event_verification)
+    params.require(:event).permit(:event_name, :event_point, :event_location, :event_date, :event_start, :event_end, :event_verification,
+                                  :event_description)
   end
 end

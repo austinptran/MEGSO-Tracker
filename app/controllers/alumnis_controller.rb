@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AlumnisController < ApplicationController
+  before_action :authorize_user
   before_action :set_alumni, only: %i[show edit update destroy]
 
   # GET /alumnis or /alumnis.json
@@ -56,7 +57,7 @@ class AlumnisController < ApplicationController
     @alumni.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully destroyed.') }
+      format.html { redirect_to(alumnis_url, notice: 'Alumni was successfully deleted.') }
       format.json { head(:no_content) }
     end
   end
@@ -70,6 +71,6 @@ class AlumnisController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def alumni_params
-    params.require(:alumni).permit(:LinkedIn, :alumni_grad_year, :highest_position)
+    params.require(:alumni).permit(:alumni_name, :LinkedIn, :alumni_grad_year, :highest_position)
   end
 end
