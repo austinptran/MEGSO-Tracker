@@ -99,7 +99,7 @@
       <% @pending_rewards.each do |pending_reward| %>
         <tr>
           <td scope="row"><%= pending_reward.reward_name %></td>
-          <td><%= pending_reward.created_at %></td>
+          <td><%= pending_reward.created_at.to_time.strftime('%A, %B %d, %Y') %></td>
           <td><%= get_current_user_email pending_reward.UID %></td>
           <td><%= get_current_user_first_name pending_reward.UID %></td>
           <td><%= get_current_user_last_name pending_reward.UID %></td>  
@@ -145,7 +145,7 @@
         <% if pending_reward.UID == current_user.UID %>
         <tr>
           <td scope="row"><%= pending_reward.reward_name %></td>
-          <td><%= pending_reward.created_at %></td>
+          <td><%= pending_reward.created_at.to_time.strftime('%A, %B %d, %Y') %></td>
           <td>Pending</td>
         </tr>
         <% end %>
@@ -154,7 +154,7 @@
         <% if earned_reward.UID == current_user.UID %>
         <tr>
           <td scope="row"><%= earned_reward.reward_name %></td>
-          <td><%= earned_reward.created_at %></td>
+          <td><%= earned_reward.created_at.to_time.strftime('%A, %B %d, %Y') %></td>
           <td>Earned</td>
         </tr>
         <% end %>

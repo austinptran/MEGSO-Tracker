@@ -23,17 +23,17 @@
 
       <p>
         <strong>Event Date:</strong>
-        <%= @event.event_date %>
+        <%= @event.event_date.to_time.strftime('%A, %B %d, %Y') %>
       </p>
 
       <p>
         <strong>Start Time:</strong>
-        <%= @event.event_start %>
+        <%= @event.event_start.to_time.strftime('%l:%M%p') %>
       </p>
 
       <p>
         <strong>End Time:</strong>
-        <%= @event.event_end %>
+        <%= @event.event_end.to_time.strftime('%l:%M%p') %>
       </p>
 
       <% if current_user.is_admin == true %>
