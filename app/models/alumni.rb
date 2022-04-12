@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Alumni < ApplicationRecord
-  validates :alumni_name, :LinkedIn, :alumni_grad_year, :highest_position, presence: true, length: { minimum: 2, maximum: 100 }
+  validates :LinkedIn, :alumni_grad_year, :highest_position, presence: true, length: { minimum: 2, maximum: 100 }
   # URL_REGEXP = /\A(http|https):\/\/[www\.]+([linkedin.com]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?\z/ix
   # URL_REGEXP = /\A(http|https):\/\/([\w]+\.]{1}linkedin+)*\.com{2,5}({1,5})?(\/.*)?\z/ix
   # URL_REGEXP = /https?:\/\/(?:\.be\/|(?:[a-z]{2,3}\.)?youtube\.com\/watch(?:\?|#\!)v=)([\w-]{11}).*/gi

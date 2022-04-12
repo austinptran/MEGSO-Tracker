@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2022_04_12_010633) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "highest_position"
-    t.string "alumni_name"
   end
 
   create_table "attendee_lists", force: :cascade do |t|
