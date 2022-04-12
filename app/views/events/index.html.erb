@@ -37,8 +37,8 @@
         <td scope="row"><%= link_to event.event_name, event, :method => :get %></td>
         <td><%= event.event_point %></td>
         <td><%= event.event_location %></td>
-        <td><%= event.event_date %></td>
-        <td><%= event.event_start %></td>
+        <td><%= event.event_date.to_time.strftime('%A, %B %d, %Y') %></td>
+        <td><%= event.event_start.to_time.strftime('%l:%M%p') %></td>
         <td><%= event.event_end %></td>
         <% if current_user.is_admin == true %>
           <td><%= event.event_verification %></td>
