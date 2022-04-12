@@ -18,7 +18,7 @@
 	  <table class="table table-hover">
 	    <thead>
 	      <tr>
-		  	
+		  	<th scope="col">Name</th>
 			<th scope="col">LinkedIn URL</th>
 			<th scope="col">Graduation Year</th>
 			<th scope="col">Highest Position</th>
@@ -29,7 +29,7 @@
 	  <tbody>
 	    <% @alumnis.each do |alumni| %>
 	      <tr>
-			
+		  <td><%= alumni.alumni_name %></td>
 			<td><%= link_to alumni.LinkedIn, alumni.LinkedIn %></td>
 			<td><%= alumni.alumni_grad_year %></td>
 			<td><%= alumni.highest_position %></td>

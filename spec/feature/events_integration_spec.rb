@@ -32,9 +32,9 @@ RSpec.describe 'Add an Event', type: :feature do
     expect(page).to have_content('Event')
     expect(page).to have_content('20')
     expect(page).to have_content('ZACH')
-		expect(page).to have_content('2022-07-01')
-		expect(page).to have_content('2000-01-01 12:00:00 UTC')
-		expect(page).to have_content('2000-01-01 20:00:00 UTC')
+		expect(page).to have_content('Friday, July 01, 2022')
+		expect(page).to have_content('12:00PM')
+		expect(page).to have_content('8:00PM')
 		expect(page).to have_content('109839')
   end
 end
