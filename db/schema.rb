@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_065823) do
   enable_extension "plpgsql"
 
   create_table "alumnis", force: :cascade do |t|
+    t.string "alumni_name"
     t.string "LinkedIn"
     t.integer "alumni_grad_year"
     t.datetime "created_at", precision: 6, null: false
