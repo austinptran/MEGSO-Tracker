@@ -62,14 +62,16 @@ class UsersController < ApplicationController
   def unmakeAdmin
     @unmakeAdmin = User.find(params[:id])
     @unmakeAdmin.update_attribute(:is_admin, false)
-    @unmakeAdmin.update_attribute(:is_officer, false)
-    @unmakeAdmin.update_attribute(:officer_apply, false)
     @unmakeAdmin.update_attribute(:position, 'Member')
     redirect_to(users_url)
   end
 
   def delete
     @user = User.find(params[:id])
+  end
+
+  def applyOfficer
+    @apply_officer = User.find(params[:id])
   end
 
   def acceptOfficer
@@ -89,6 +91,7 @@ class UsersController < ApplicationController
   def unmakeOfficer
     @unmake_officier = User.find(params[:id])
     @unmake_officier.update_attribute(:is_officer, false)
+    @unmake_officier.update_attribute(:is_admin, false)
     @unmake_officier.update_attribute(:officer_apply, false)
     @unmake_officier.update_attribute(:position, 'Member')
     redirect_to(users_path, notice: 'Officer application was successfully denied.')

@@ -44,8 +44,7 @@
         </p>
       <% else %>
         <p>
-        <strong>Is an Officer?</strong>
-        <p>No</p>
+        <%= button_to 'Apply To Be An Officer', applyOfficer_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
         </p>
       <% end %>
       <p>
