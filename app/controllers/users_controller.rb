@@ -51,6 +51,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def applyOfficer
+    set_user
+  end
+
   def makeAdmin
     @makeAdmin = User.find(params[:id])
     @makeAdmin.update_attribute(:is_admin, true)
