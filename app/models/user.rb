@@ -46,7 +46,7 @@ class User < ApplicationRecord
     self.is_officer ||= false
     self.position ||= 'Member'
     self.officer_apply ||= false
-    if email == 'shanebrown013@tamu.edu' || email == 'ashoksteelers12@tamu.edu' || email == 'mojoatm2023@tamu.edu' || email == 'plantand000@tamu.edu' || email == 'austinptran.2000@tamu.edu' || email == 'justiceu@tamu.edu' || email == 'cfauver@tamu.edu'
+    if email == ENV["GMAIL_USERNAME"]
       self.is_admin = true
       self.is_officer = true
       self.position = 'Officer'

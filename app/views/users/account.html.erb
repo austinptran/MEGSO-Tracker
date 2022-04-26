@@ -25,10 +25,9 @@
           <strong>Points:</strong>
           <%= @user.points %>
         </p>
-
+      <% elsif @user.officer_apply == false %>
         <p>
-          <strong>Rewards Earned:</strong>
-          <%= @user.rewards_earned %>
+        <%= button_to 'Apply To Be An Officer', applyOfficer_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
         </p>
 
         <% if @user.is_admin == true %>
