@@ -1,63 +1,65 @@
-<p id="notice"><%= notice %></p>
+<% if current_user.UID == @user.UID %>
+  <p id="notice"><%= notice %></p>
 
-<div class="row">
-  <div class="col-4">
-  </div>
-  <div class= "card col-4">
-    <div class="card-header">
-      <p>
-        <%= @user.first_name %> <%= @user.last_name %>
-      </p>
+  <div class="row">
+    <div class="col-4">
     </div>
-    <div class="card-body">
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-
-      <p>
-        <strong>UIN:</strong>
-        <%= @user.UID %>
-      </p>
-
-      <p>
-        <strong>Points:</strong>
-        <%= @user.points %>
-      </p>
-
-      <p>
-        <strong>Rewards Earned:</strong>
-        <%= @user.rewards_earned %>
-      </p>
-
-      <% if @user.is_admin == true %>
+    <div class= "card col-4">
+      <div class="card-header">
         <p>
-          <strong>Is an Admin?</strong>
-          <p>Yes</p>
+          <%= @user.first_name %> <%= @user.last_name %>
         </p>
-      <% end %>
-
-      <% if @user.is_officer == true %>
+      </div>
+      <div class="card-body">
         <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
+
+        <p>
+          <strong>UIN:</strong>
+          <%= @user.UID %>
+        </p>
+
+        <p>
+          <strong>Points:</strong>
+          <%= @user.points %>
+        </p>
+
+        <p>
+          <strong>Rewards Earned:</strong>
+          <%= @user.rewards_earned %>
+        </p>
+
+        <% if @user.is_admin == true %>
+          <p>
+            <strong>Is an Admin?</strong>
+            <p>Yes</p>
+          </p>
+        <% end %>
+
+        <% if @user.is_officer == true %>
+          <p>
+            <strong>Is an Officer?</strong>
+            <p>Yes</p>
+          </p>
+        <% else %>
+          <p>
           <strong>Is an Officer?</strong>
-          <p>Yes</p>
-        </p>
-      <% else %>
+          <p>No</p>
+          </p>
+        <% end %>
         <p>
-        <strong>Is an Officer?</strong>
-        <p>No</p>
+        <%= button_to 'Change Password', edit_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
+        <br>
+        <%= button_to 'Logout', logout_path, :method => :delete, class: "btn btn-outline-secondary" %>
         </p>
-      <% end %>
-      <p>
-      <%= button_to 'Change Password', edit_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
-      <br>
-      <%= button_to 'Logout', logout_path, :method => :delete, class: "btn btn-outline-secondary" %>
-      </p>
+      </div>
+    </div>
+    <div class="col-4">
     </div>
   </div>
-  <div class="col-4">
-  </div>
-</div>
+<% end %>
 
 <br>
 
