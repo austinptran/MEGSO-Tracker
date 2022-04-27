@@ -1,3 +1,4 @@
+<% if current_user.UID == @user.UID %>
 <p id="notice"><%= notice %></p>
 
 <div class="row">
@@ -42,10 +43,9 @@
           <strong>Is an Officer?</strong>
           <p>Yes</p>
         </p>
-      <% else %>
+      <% elsif @user.officer_apply == false %>
         <p>
-        <strong>Is an Officer?</strong>
-        <p>No</p>
+        <%= button_to 'Apply To Be An Officer', applyOfficer_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
         </p>
       <% end %>
       <p>
@@ -58,7 +58,7 @@
   <div class="col-4">
   </div>
 </div>
-
+<% end %>
 <br>
 
 <div class="row">

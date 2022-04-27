@@ -2,7 +2,7 @@
 
 <% if current_user == nil%>
 	<% controller.redirect_to root_path %>
-<% elsif is_admin? current_user %>
+<% elsif current_user.is_admin == true %>
 	<div class="row">
 	  <div class = "col">
 	  </div>
@@ -21,7 +21,7 @@
 		  	<th scope="col">Name</th>
 			<th scope="col">LinkedIn URL</th>
 			<th scope="col">Graduation Year</th>
-			<th scope="col">Highest Position</th>
+			<th scope="col">Highest MEGSO Position</th>
 			<th scope="col">Actions</th>
 	      </tr>
 	    </thead>
@@ -45,7 +45,7 @@
 	  </tbody>
 	</table>
 
-<% elsif is_admin current_user == false %>
+<% elsif current_user.is_admin == false %>
   <h1>You do not have access to this page!</h1>
 <% end %>
 </div>

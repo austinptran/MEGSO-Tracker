@@ -1,3 +1,4 @@
+<% if current_user.is_admin == true %>
 <div class="row">
   <div class = "col">
   </div>
@@ -46,3 +47,8 @@
   <div class="col">
   </div>
 </div>
+<% end %>
+
+<% if current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>
