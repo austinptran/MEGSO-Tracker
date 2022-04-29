@@ -60,7 +60,9 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 ## Environmental Variables/Files ##
 
-** Add instructions/description if your application requires it.
+There is currently one environment variable that needs to be configured. It can be set manually in the `config/local_env.yml` for local development, but for other environments, one should configure this variable in Heroku deployment config variables.
+
+* GMAIL_USERNAME
 
 ## Deployment ##
 
