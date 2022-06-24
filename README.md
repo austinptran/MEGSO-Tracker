@@ -3,7 +3,7 @@
 ## Introduction ##
 
 Our team has been tasked with creating a web application for the Mechanical Engineering Graduate Student Organization (MEGSO) at 
-Texas A&M University. This application will allow MEGSO student members to sign up for events, as well as enable the organization officers keep track of members' attendance and award points based on the events atteneded. In addition, our web app functions as an alumni tracker, where MEGSO officers can see detailed information about the past MEGSO memebers that held office in the organization. Alumni will be tracked mainly through basic information such as graduation year, current company, current job position held, and occupation. 
+Texas A&M University. This application will allow MEGSO student members to sign up for events, as well as enable the organization officers keep track of members' attendance and award points based on the events atteneded. In addition, our web app functions as an alumni tracker, where MEGSO officers can see detailed information about the past MEGSO members that held office in the organization. Alumni will be tracked mainly through basic information such as graduation year, current company, current job position held, and occupation. 
 
 
 ## Requirements ##
